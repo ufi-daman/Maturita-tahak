@@ -1,0 +1,120 @@
+Co je rozvaha?	Přehled majetku (AKTIVA) a zdrojů jeho krytí (PASIVA). Platí: <b>AKTIVA = PASIVA</b>.	T01_UCE
+Jaký je vzorec pro základní kapitál?	<b>ZK = AKTIVA − ostatní PASIVA</b>	T01_UCE
+Co patří do aktiv?	Dlouhodobý majetek (budovy 021, stroje 022, SMV) + Oběžný majetek (zásoby 112/132, pohledávky 311/335, pokladna 211, BÚ 221, ceniny 213)	T01_UCE
+Co patří do pasiv?	Vlastní zdroje (ZK 411, VH) + Cizí zdroje (závazky 321, úvěry 231/461, nevyplacené mzdy 331, instituce 336, zálohy daně 342)	T01_UCE
+Co je výsledovka?	Přehled nákladů (5xx) a výnosů (6xx) za období. <b>VH = Výnosy − Náklady</b>. Zisk = VH > 0, Ztráta = VH < 0.	T01_UCE
+Je nadměrný odpočet DPH aktivum nebo pasivum?	<b>AKTIVUM</b> (pohledávka za FÚ). Nedoplatek DPH = pasivum (závazek vůči FÚ).	T01_UCE
+Co je SWOT analýza?	Analýza vnitřního a vnějšího prostředí firmy. <b>S</b>=silné stránky, <b>W</b>=slabé stránky, <b>O</b>=příležitosti, <b>T</b>=hrozby.	T01_MGM
+Co je vnitřní a co vnější ve SWOT?	<b>Vnitřní</b> (S, W) = firma ovlivní (kvalita, personál, vybavení). <b>Vnější</b> (O, T) = firma neovlivní (ekonomika, legislativa, konkurence).	T01_MGM
+Jaké sazby má DPH v ČR?	<b>21%</b> (základní), <b>12%</b> (snížená), <b>0%</b>.	T01_EKO
+Jak vypočítáš DPH z ceny BEZ DPH?	DPH = základ × sazba. Např. 25 000 × 0,12 = 3 000 Kč.	T01_EKO
+Jak vypočítáš DPH z ceny VČETNĚ DPH?	Základ = cena ÷ (1 + sazba). DPH = cena − základ. Např. 28 000 ÷ 1,12 = 25 000, DPH = 3 000.	T01_EKO
+Co je DPH na vstupu a výstupu?	<b>Vstup</b> = DPH zaplacené dodavatelům (nárok na odpočet). <b>Výstup</b> = DPH vybrané od zákazníků. Daňová povinnost = výstup − vstup.	T01_EKO
+Jaké jsou finanční účty?	<b>221</b> BÚ, <b>211</b> Pokladna, <b>213</b> Ceniny, <b>261</b> Peníze na cestě.	T02_UCE
+Jak se účtuje převod z BÚ do pokladny?	Přes 261! MD 261/D 221 (výběr z BÚ) → MD 211/D 261 (příjem do pokladny).	T02_UCE
+Jak se účtují úroky z BÚ?	MD 221 / D 662 (výnos — úroky z vkladu).	T02_UCE
+Jak se účtují úroky z úvěru?	MD 562 / D 221 (náklad — úroky z úvěru).	T02_UCE
+Jaké druhy škál znáš?	<b>Pořadová</b> (seřazení), <b>Intervalová</b> (1-7), <b>Bipolární</b> (protikladné póly), <b>Likertova</b> (míra souhlasu).	T02_MGM
+Co je reliabilita a validita?	<b>Reliabilita</b> = spolehlivost měření (shoda posuzovatelů, Cronbach alfa). <b>Validita</b> = měří to, co má měřit (expertní hodnocení).	T02_MGM
+Jaké jsou odpisové skupiny 1-3?	Sk. 1 = 3 roky (PC, mobil). Sk. 2 = 5 let (auto, baterie). Sk. 3 = 10 let (klimatizace).	T02_EKO
+Jaké jsou odpisové skupiny 4-6?	Sk. 4 = 20 let (budovy dřevo/plast). Sk. 5 = 30 let (budovy ostatní). Sk. 6 = 50 let (admin. budovy, hotely).	T02_EKO
+Vzorec rovnoměrného odpisu?	<b>Odpis = VC × % sazba ÷ 100</b>. Sk. 2: 1. rok 11%, další roky 22,25%.	T02_EKO
+Vzorec zrychleného odpisu?	<b>1. rok = VC ÷ koeficient</b>. Další roky = <b>2 × ZC ÷ (koef. − n)</b>. Sk. 2: koef. 1. rok = 5, další = 6, n = počet odepsaných let.	T02_EKO
+Co je účet 213 — Ceniny?	Poštovní známky, kolky, stravenky, jízdenky, dálniční známky. Nákup: MD 213/D 211. Spotřeba: MD 518 nebo 538/D 213.	T03_UCE
+Jak se účtuje spotřeba známek?	MD 518 (služby) / D 213. Kolky → MD 538 (daně a poplatky) / D 213. Stravenky → MD 527 / D 213.	T03_UCE
+Kdy se ceniny účtují přímo do nákladů?	Když jsou <b>spotřebovány ihned</b> při nákupu. Např. dálniční známka rovnou registrována → MD 538/D 211.	T03_UCE
+Jaké formy propagace znáš?	Reklama, osobní prodej, podpora prodeje (slevy, vzorky), PR (tiskové zprávy, sponzoring), přímý marketing (e-mail, telemarketing).	T03_MGM
+Vzorec časové normy zásob (ČN)?	<b>ČN = ½ × běžná zásoba + pojistná + technická</b> (ve dnech). Dodávkový cyklus = běžná zásoba.	T03_EKO
+Vzorec naturální normy zásob (NZ)?	<b>NZ = ČN × denní spotřeba</b> (v ks, kg, m...).	T03_EKO
+Vzorec finanční normy zásob (FN)?	<b>FN = NZ × cena za jednotku</b> (v Kč).	T03_EKO
+Jak se účtuje pořízení materiálu (způsob A)?	FP: MD 111/D 321 (základ bez DPH) + MD 343/D 321 (DPH). Příjemka: MD 112/D 111. PC = materiál + doprava.	T04_UCE
+Co je pořizovací cena materiálu?	<b>PC = cena pořízení + vedlejší pořizovací náklady</b> (doprava, manipulace). Vše BEZ DPH!	T04_UCE
+Vzorec fondu pracovní doby?	<b>365 − nepracovní dny − dovolená − průměrná nemocnost</b> = pracovní dny/rok.	T04_MGM
+Vzorec procentuálního využití kapacity?	<b>(Skuteční hosté ÷ Max. kapacita) × 100</b>. Max. kapacita = místa × obrátka × dny.	T04_EKO
+Jak se účtuje pořízení zboží?	FP: MD 131/D 321 (základ) + MD 343/D 321 (DPH). Příjemka: MD 132/D 131. Spotřeba: MD 504/D 132.	T05_UCE
+Jaké typy nezaměstnanosti znáš?	<b>Frikční</b> (krátkodobá, přirozená), <b>Strukturální</b> (nesoulad kvalifikace), <b>Cyklická</b> (hospodářský pokles), <b>Sezónní</b> (zemědělství), <b>Dobrovolná</b>.	T05_EKO
+Jak dlouho trvá podpůrčí doba?	Do 52 let = <b>5 měsíců</b>. 52-57 let = <b>8 měsíců</b>. Nad 57 let = <b>11 měsíců</b>.	T05_EKO
+Jaké jsou sazby podpory v nezaměstnanosti?	1.-2. měsíc: <b>80%</b>, 3.-4. měsíc: <b>50%</b>, zbytek: <b>40%</b> z průměrného měsíčního čistého výdělku. Max. 38 537 Kč.	T05_EKO
+Jak se účtuje vyskladnění materiálu a zboží?	Materiál: MD 501/D 112 (výdejka). Zboží: MD 504/D 132 (vyskladnění). Vždy v <b>pořizovací ceně</b>!	T06_UCE
+Vzorec celkových mzdových nákladů zaměstnavatele?	<b>Celkové N = hrubé mzdy × 1,338</b> (odvody zaměstnavatele 24,8% SP + 9% ZP = 33,8%).	T06_MGM
+Co je monetární politika?	Opatření <b>ČNB</b> k regulaci peněžní zásoby a úrokových sazeb. Hlavní nástroj: <b>2T repo sazba</b>.	T06_EKO
+Co znamená snížení repo sazby?	<b>Expanzivní politika</b> — levnější úvěry → podpora spotřeby a investic → riziko růstu inflace.	T06_EKO
+Jak se účtuje prodej zboží?	DVĚ operace: 1) Vyskladnění: MD 504/D 132 (v PC). 2) Tržba: MD 311/D 604 (bez DPH) + MD 311/D 343 (DPH).	T07_UCE
+Jak se účtuje prodej materiálu?	1) MD 542/D 112 (prodaný materiál v PC). 2) MD 311/D 642 (tržba bez DPH) + MD 311/D 343 (DPH).	T07_UCE
+Jaké dokumenty požadovat od uchazeče?	CV, motivační dopis, OP, zdravotní způsobilost, výpis z RT, osvědčení o vzdělání.	T07_MGM
+Jaké dokumenty firma archivuje po nástupu?	Pracovní smlouva, mzdový výměr, přihláška SP/ZP, osobní karta, prohlášení k dani, evidenční list DP, záznam BOZP.	T07_MGM
+Co je fiskální politika?	Opatření <b>vlády</b> přes příjmy a výdaje státního rozpočtu. Saldo = příjmy − výdaje.	T07_EKO
+Typy státního rozpočtu?	<b>Přebytkový</b> (P > V), <b>Vyrovnaný</b> (P = V), <b>Schodkový</b> (P < V).	T07_EKO
+Jak se účtuje spotřeba materiálu?	MD 501/D 112 (výdejka ze skladu). Pokud nákup + spotřeba ihned → MD 501/D 211 (nebo 321).	T08_UCE
+Struktura motivačního dopisu?	Oslovení → Proč se hlásím → Co nabízím (dovednosti, zkušenosti) → Proč právě tato firma → Závěr s kontaktem.	T08_MGM
+Jak se vypočítá podpora v nezaměstnanosti?	ČMV = poslední kvartální příjem ÷ 3. Sazby: 80%→50%→40%. Porovnat s maximem 38 537 Kč!	T08_EKO
+Jak se účtuje pořízení DHM?	FP: MD 042/D 321 (základ) + MD 343/D 321 (DPH). Vedlejší N (instalace): MD 042/D 321. Zařazení: <b>MD 022/D 042</b>.	T09_UCE
+Co zahrnuje pořizovací cena DHM?	<b>Cena pořízení + doprava + montáž + instalace</b> — vše BEZ DPH. Vše se shromáždí na účtu 042.	T09_UCE
+Zásady krizové komunikace?	Rychlost, transparentnost, empatie, převzetí odpovědnosti, konkrétní řešení, kompenzace, prevence opakování.	T09_MGM
+Vzorec nominálního HDP?	<b>HDP_nom = Σ(množství × cena daného roku)</b>	T09_EKO
+Vzorec reálného HDP?	<b>HDP_real = Σ(množství daného roku × cena základního roku)</b> — očištěný o inflaci.	T09_EKO
+Vzorec míry inflace přes deflátor?	<b>(HDP_nom ÷ HDP_real − 1) × 100%</b>	T09_EKO
+Jak se účtují odpisy DHM?	<b>MD 551/D 082</b>. 551 = náklad (snižuje VH). 082 = oprávky (korekce hodnoty majetku). ZC = VC − oprávky.	T10_UCE
+Jaké jsou styly řízení?	<b>Byrokratický</b>, <b>Autoritativní</b>, <b>Demokratický</b>, <b>Liberální</b>.	T10_MGM
+Úrovně managementu?	<b>TOP</b> (strategické), <b>Střední</b> (taktické), <b>Liniový</b> (operativní).	T10_MGM
+Vzorec bodu zvratu?	<b>BZ = FC ÷ (P − VN)</b>. FC = fixní náklady, P = prodejní cena/ks, VN = variabilní náklady/ks.	T10_EKO
+Co je bod zvratu?	Množství produkce, při kterém <b>tržby = celkové náklady</b> (nulový zisk). Pod BZ = ztráta, nad BZ = zisk.	T10_EKO
+Vzorec celkových nákladů?	<b>TC = FC + VC</b>. FC = fixní (nájem, odpisy), VC = variabilní (materiál, suroviny).	T10_EKO
+Účet 311 vs. 321?	<b>311</b> = pohledávky za odběrateli (aktivní). <b>321</b> = závazky dodavatelům (pasivní).	T11_UCE
+Sazby odvodů zaměstnance ze mzdy?	SP: <b>6,5% + 0,6%</b> = 7,1%. ZP: <b>4,5%</b>. Záloha na daň: <b>15%</b> z HM.	T11_EKO
+Sazby odvodů zaměstnavatele ze mzdy?	SP: <b>24,8%</b>. ZP: <b>9%</b>. Celkem: 33,8%.	T11_EKO
+Vzorec čisté mzdy?	<b>Čistá = HM − SP(7,1%) − ZP(4,5%) − záloha daně po slevách</b>. Záloha = HM×0,15 − slevy.	T11_EKO
+Slevy na dani (měsíční)?	Poplatník: <b>2 570 Kč</b>. 1. dítě: 1 267. 2. dítě: 1 860. 3.+ dítě: 2 320.	T11_EKO
+Co jsou nákladové a výnosové účty?	<b>5xx = Náklady</b> (MD+). <b>6xx = Výnosy</b> (D+). <b>Nemají počáteční stavy!</b> Každé období od nuly.	T12_UCE
+Hlavní nákladové účty?	501 spotřeba mat., 502 energie, 518 služby, 521 mzdy, 524 zákonné SP/ZP, 527 zákonné soc. N, 538 daně, 551 odpisy, 562 úroky.	T12_UCE
+Hlavní výnosové účty?	601 tržby za výrobky, 602 tržby za služby, 604 tržby za zboží, 642 tržby z prodeje mat., 662 úroky z BÚ.	T12_UCE
+Dva způsoby výpočtu marže?	<b>Shora:</b> P = N/ks ÷ (1−marže). Při 15%: P = N÷0,85.<br><b>Zdola:</b> P = N/ks × (1+marže). Při 15%: P = N×1,15.<br>Škola používá metodu SHORA!	T12_MGM
+Cesta od nápadu k plánu?	1. <b>Nápad</b> (co?) → 2. <b>Příležitost</b> (má smysl?) → 3. <b>Mise</b> (proč?) → 4. <b>Vize</b> (kam?) → 5. <b>Strategie</b> (jak?) → Business plán	T12_EKO
+Jak se účtuje služební cesta?	Záloha: MD 335/D 211. Vyúčtování (cestovné, ubytování): MD 512/D 335. Vrácení zbytku: MD 211/D 335 nebo srážka MD 331/D 335.	T13_UCE
+Vzorec roční daně z příjmů FO?	Základ = příjmy − nezdanitelné části. <b>Daň = základ × 15%</b>. Daň po slevách = daň − slevy. Výsledek = daň po slevách − zálohy.	T13_EKO
+Jaké nezdanitelné části základu daně znáš?	Dary, penzijní připojištění, životní pojištění, úroky z hypotéky, odborové příspěvky, odborné vzdělávání.	T13_EKO
+Fáze životního cyklu výrobku?	<b>Vývoj → Zavedení → Růst → Zralost → Pokles</b>. Ve fázi zavedení: vyšší cena, silný marketing, omezená distribuce.	T14_MGM
+Vrstvy produktu?	<b>Základní</b> (funkce) → <b>Očekávaný</b> (kvalita, balení) → <b>Rozšířený</b> (servis, záruka) → <b>Potenciální</b> (inovace).	T14_MGM
+Co jsou fixní a variabilní náklady?	<b>Fixní</b>: nezávisí na objemu (nájem, mzdy stálých, odpisy). <b>Variabilní</b>: závisí na objemu (suroviny, materiál, brigádníci).	T14_EKO
+Jak se účtuje FV (faktura vydaná)?	MD 311/D 602 nebo 604 (výnos bez DPH) + MD 311/D 343 (DPH na výstupu). Úhrada: MD 221/D 311.	T15_UCE
+Co je cafeteria systém?	Zaměstnanec si <b>volí benefity dle svých preferencí</b> (sport, kultura, vzdělávání, zdraví). Platformy: Edenred, Benefit Plus.	T15_MGM
+Sazby zdravotního pojištění?	Zaměstnanec: <b>4,5%</b> z HM. Zaměstnavatel: <b>9%</b> z HM. OSVČ: <b>13,5%</b> z 50% vyměřovacího základu. Min. záloha 2026: 3 306 Kč.	T15_EKO
+Jak vypočítat ZP u OSVČ?	VZ = (příjmy − výdaje) × 0,50. ZP = VZ × 0,135. Porovnat s minimem 3 306 Kč/měs!	T15_EKO
+Účet 343 — DPH na vstupu vs. výstupu?	Vstup (nákupy): <b>MD 343</b>. Výstup (prodeje): <b>D 343</b>. MD > D → nadměrný odpočet. D > MD → daňová povinnost.	T16_UCE
+Povinné náležitosti pracovní smlouvy?	<b>Druh práce, místo výkonu práce, den nástupu</b>. Musí být písemná, min. 2 vyhotovení.	T16_MGM
+Zkušební doba?	Max <b>3 měsíce</b> (6 měsíců u vedoucích). Výpovědní doba: min. 2 měsíce od 1. dne následujícího měsíce.	T16_MGM
+Sazby sociálního pojištění?	Zaměstnanec: <b>7,1%</b> (6,5% důchodové + 0,6% nemocenské). Zaměstnavatel: <b>24,8%</b>. OSVČ: <b>29,2%</b> z 55% VZ. Min. záloha 2026: 5 720 Kč.	T16_EKO
+Jak se účtuje DPH na výstupu?	MD 311/D 6xx (výnos) + MD 311/<b>D 343</b> (DPH). Odvod FÚ: MD 343/D 221.	T17_UCE
+Vzorec produktivity práce?	<b>[Příjmy − (výdaje + režie + odpisy + úroky + personální N)] ÷ počet zaměstnanců</b>	T17_MGM
+Co je RPSN?	<b>Roční procentní sazba nákladů</b> = celkové náklady úvěru (úrok + poplatky) v % za rok. Slouží k porovnání úvěrů.	T17_EKO
+Dvoustupňová bankovní soustava ČR?	<b>ČNB</b> (centrální — měnová politika, emise bankovek, dohled) + <b>Komerční banky</b> (vklady, úvěry, platební styk).	T17_EKO
+Jak se účtuje záloha daně ze mzdy?	Předpis: MD 331/D 342. Úhrada FÚ: MD 342/D 221. Účet 342 = závazek vůči FÚ.	T18_UCE
+Jaké otázky u pohovoru nejsou vhodné?	Vše nesouvisející s výkonem: plánování rodiny, náboženství, sexuální orientace, osobní život, zdravotní stav.	T18_MGM
+Vzorec pro plánování zaměstnanců?	Celkový čas = množství × čas/ks. Fond = (365−neprac−dovolená−nemoc) × hod/směna. <b>Zaměstnanci = celkový čas ÷ fond</b> (zaokrouhlit NAHORU).	T18_EKO
+Jak se účtují odvody SP/ZP institucím?	Za zaměstnavatele: MD 524/D 336 (náklad). Za zaměstnance: MD 331/D 336 (srážka ze mzdy). Úhrada: MD 336/D 221.	T19_UCE
+Postup vícekriteriálního rozhodování?	1) Kritéria + váhy (součet 100%). 2) Body (1-10) pro každou variantu. 3) <b>Skóre = Σ(body × váha)</b>. Nejvyšší = nejlepší.	T19_MGM
+Vzorec ročních mzdových nákladů?	Měsíční HM × počet zaměstnanců × 12 = roční HM. <b>Celkové firemní N = roční HM × 1,338</b>.	T19_EKO
+Postup účtování hrubých mezd?	1) MD 521/D 331 (HM). 2) MD 524/D 336 (SP+ZP zaměstnavatel). 3) MD 331/D 336 (srážky zaměstnanec). 4) MD 331/D 342 (daň). 5) MD 331/D 221 (výplata).	T20_UCE
+Co je mise firmy?	<b>Proč existujeme?</b> Přítomnost, účel firmy, jakou hodnotu máme pro zákazníky.	T20_MGM
+Co je vize firmy?	<b>Kam směřujeme?</b> Budoucí stav (5-10 let), inspirativní, zapamatovatelná, popisuje cíle.	T20_MGM
+Jak poznám dobrou vizi?	Jednoduchá a zapamatovatelná, odráží hodnoty, ukazuje dlouhodobý směr, inspiruje zákazníky i zaměstnance.	T20_MGM
+Co je inflace?	Dlouhodobý růst cenové hladiny → <b>pokles hodnoty peněz</b>. Druhy: mírná (2-5%), pádivá (10-50%), hyperinflace (100%+).	T20_EKO
+Vzorec znehodnocení kupní síly?	<b>% znehodnocení = (1 − nová kupní síla ÷ původní) × 100</b>	T20_EKO
+Vzorec ztráty kupní síly mzdy?	<b>Ztráta = mzda × inflace ÷ 100</b> (měsíční). Za rok: × 12.	T20_EKO
+Vzorec reálné hodnoty úspor po inflaci?	<b>Reálná hodnota = úspory ÷ (1 + inflace/100)^t</b>. Kumulativně rok po roce!	T20_EKO
+Co je deflace?	<b>Pokles cenové hladiny</b>. Může zpomalit ekonomiku a vést k recesi (lidé odkládají nákupy).	T20_EKO
+Účet 335 — pohledávky za zaměstnanci?	Záloha na služební cestu: MD 335/D 211. Vyúčtování: MD 512/D 335. Vrácení přeplatku: MD 211/D 335.	T13_UCE
+Účet 521 — Mzdové náklady?	Předpis HM: <b>MD 521/D 331</b>. Nákladový účet (MD+), zvyšuje celkové náklady firmy.	T20_UCE
+Účet 524 — Zákonné SP/ZP?	Odvody zaměstnavatele: <b>MD 524/D 336</b>. Nákladový účet. Celkem 33,8% z HM.	T19_UCE
+Jak se počítá SP u OSVČ?	VZ = (příjmy − výdaje) × <b>0,55</b>. SP = VZ × 0,292. Min. záloha 2026: <b>5 720 Kč/měs</b>.	T16_EKO
+Jak se počítá ZP u OSVČ?	VZ = (příjmy − výdaje) × <b>0,50</b>. ZP = VZ × 0,135. Min. záloha 2026: <b>3 306 Kč/měs</b>.	T15_EKO
+Co je expanzivní fiskální politika?	Snížení daní / zvýšení vládních výdajů → podpora ekonomiky, spotřeby, zaměstnanosti. Riziko: vyšší schodek.	T07_EKO
+Co je restriktivní fiskální politika?	Zvýšení daní / snížení výdajů → brzdění inflace, snížení schodku. Riziko: pokles spotřeby a HDP.	T07_EKO
+Co je BCG matice?	Otazníky (nové výrobky), Hvězdy (rostoucí podíl), Peněžní krávy (stabilní zisk), Psi (klesající). Porovnává růst a podíl na trhu.	T12_MGM
+Struktura podnikatelského plánu?	Vize a cíle, forma podnikání, legislativa, nabídka produktů, dodavatelé/odběratelé, SWOT, finanční plán (3 scénáře), shrnutí.	T12_EKO
+Bipolární škála — zásady tvorby?	1) Stejný slovní druh na obou stranách. 2) Ne jen zápor s „ne-". 3) Výraz jen v 1 škále. 4) Přesné protějšky (klidný ↔ nervózní, NE tichý ↔ nervózní).	T02_MGM
+Příplatek za práci o víkendu?	<b>25%</b> z průměrné hodinové sazby. Výpočet: hodinová × 0,25 × počet hodin. Přičítá se k HM!	T11_EKO
+Sleva na dani — roční hodnoty 2026?	Poplatník: <b>30 840 Kč</b>. 1. dítě: 15 204. 2. dítě: 22 320. 3.+ dítě: 27 840.	T13_EKO
+Evidence na ÚP — do kolika dnů?	Nejpozději do <b>3 pracovních dnů</b> od ukončení pracovního poměru.	T08_EKO
+Výpovědní lhůta — kdy končí?	<b>Minimálně 2 měsíce</b>, běží od 1. dne měsíce následujícího po doručení výpovědi.	T16_MGM
+Termínovaný vklad — zdanění úroků?	Úroky se daní <b>15% srážkovou daní</b>. Čistý výnos = úspory × úrok − 15% daň z úroku.	T17_EKO
