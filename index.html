@@ -3,675 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maturitní Tahák — Podnikání v praxi 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<title>Maturita 2026 — Podnikání v praxi</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0f1117;--card:#1a1d27;--card2:#232736;--acc:#4f8cff;--acc2:#38d9a9;--acc3:#f59f00;--txt:#e4e6ec;--txt2:#9399a8;--border:#2d3140;--red:#ff6b6b;--pink:#e599f7}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;min-height:100vh}
-.mono{font-family:'JetBrains Mono',monospace}
+:root{--bg:#0c0e14;--card:#151821;--card2:#1c2030;--acc:#4f8cff;--acc2:#38d9a9;--acc3:#f59f00;--acc4:#e599f7;--txt:#e4e6ec;--txt2:#8890a0;--border:#252a3a;--glow1:rgba(79,140,255,0.15);--glow2:rgba(56,217,169,0.15);--glow3:rgba(245,159,0,0.15);--glow4:rgba(229,153,247,0.15)}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden}
 
-/* Header */
-header{background:linear-gradient(135deg,#1a1d27 0%,#232736 100%);border-bottom:1px solid var(--border);padding:16px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
-header h1{font-size:18px;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-header p{font-size:12px;color:var(--txt2);margin-top:2px}
+.hero{text-align:center;padding:60px 20px 40px;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(79,140,255,0.08),transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(28px,5vw,42px);font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2),var(--acc3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;position:relative}
+.hero p{color:var(--txt2);font-size:15px;max-width:500px;margin:0 auto}
+.hero .badge{display:inline-block;margin-top:16px;padding:6px 16px;border-radius:20px;background:rgba(56,217,169,0.1);border:1px solid rgba(56,217,169,0.3);color:var(--acc2);font-size:13px;font-weight:600}
 
-/* Nav */
-.nav{display:flex;gap:6px;overflow-x:auto;padding:12px 20px;background:var(--card);border-bottom:1px solid var(--border);scrollbar-width:none;position:sticky;top:60px;z-index:99}
-.nav::-webkit-scrollbar{display:none}
-.nav button{flex-shrink:0;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--txt2);font-size:13px;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
-.nav button:hover{border-color:var(--acc);color:var(--acc)}
-.nav button.active{background:var(--acc);color:#fff;border-color:var(--acc)}
+.grid{display:grid;grid-template-columns:1fr;gap:16px;padding:20px;max-width:700px;margin:0 auto}
+@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
 
-/* Tabs for ÚČE/MGM/EKO */
-.sub-tabs{display:flex;gap:4px;padding:12px 20px;background:var(--bg)}
-.sub-tabs button{flex:1;padding:8px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--txt2);font-size:12px;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}
-.sub-tabs button.active-uce{background:#2b4a8c;color:#a3c4ff;border-color:#3b6ad4}
-.sub-tabs button.active-mgm{background:#2b6e5e;color:#7edcc3;border-color:#38d9a9}
-.sub-tabs button.active-eko{background:#6e5a2b;color:#f5d07a;border-color:#f59f00}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;text-decoration:none;color:var(--txt);transition:all .3s ease;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.card:hover{transform:translateY(-4px);border-color:var(--acc)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+.card-blue::before{background:linear-gradient(90deg,var(--acc),#7cb3ff)}
+.card-blue:hover{box-shadow:0 8px 40px var(--glow1)}
+.card-green::before{background:linear-gradient(90deg,var(--acc2),#6ee7c0)}
+.card-green:hover{box-shadow:0 8px 40px var(--glow2)}
+.card-yellow::before{background:linear-gradient(90deg,var(--acc3),#ffd43b)}
+.card-yellow:hover{box-shadow:0 8px 40px var(--glow3)}
+.card-purple::before{background:linear-gradient(90deg,var(--acc4),#da77f2)}
+.card-purple:hover{box-shadow:0 8px 40px var(--glow4)}
 
-/* Content */
-.content{padding:16px 20px;max-width:800px;margin:0 auto}
-.topic-card{display:none}
-.topic-card.visible{display:block}
-.section{background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid var(--border)}
-.section h3{font-size:15px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;text-transform:uppercase}
-.badge-uce{background:#1e3a6e;color:#6ea8ff}
-.badge-mgm{background:#1e5e4e;color:#5ed4b5}
-.badge-eko{background:#5e4a1e;color:#f0c850}
-.section p,.section li{font-size:13px;color:var(--txt);line-height:1.7}
-.section ul{padding-left:18px;margin:6px 0}
-.section li{margin-bottom:3px}
+.card .icon{font-size:36px;line-height:1}
+.card h2{font-size:18px;font-weight:800;line-height:1.3}
+.card p{font-size:13px;color:var(--txt2);line-height:1.6}
+.card .tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;text-transform:uppercase;margin-top:4px}
+.tag-blue{background:rgba(79,140,255,0.12);color:var(--acc)}
+.tag-green{background:rgba(56,217,169,0.12);color:var(--acc2)}
+.tag-yellow{background:rgba(245,159,0,0.12);color:var(--acc3)}
+.tag-purple{background:rgba(229,153,247,0.12);color:var(--acc4)}
 
-/* Formula boxes */
-.formula{background:var(--card2);border:1px solid var(--acc);border-radius:8px;padding:10px 14px;margin:8px 0;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acc);line-height:1.8}
-.formula-green{border-color:var(--acc2);color:var(--acc2)}
-.formula-yellow{border-color:var(--acc3);color:var(--acc3)}
+/* Expandable sections */
+.section{max-width:700px;margin:0 auto;padding:0 20px}
+.section-title{font-size:14px;font-weight:800;color:var(--txt2);text-transform:uppercase;letter-spacing:1.5px;padding:32px 0 12px;border-bottom:1px solid var(--border);margin-bottom:16px}
 
-/* Key terms */
-.key{color:var(--acc);font-weight:700}
-.key-g{color:var(--acc2);font-weight:700}
-.key-y{color:var(--acc3);font-weight:700}
+details.file-group{margin-bottom:8px}
+details.file-group summary{cursor:pointer;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-weight:700;font-size:14px;color:var(--txt);transition:.2s;list-style:none;display:flex;align-items:center;gap:10px}
+details.file-group summary::-webkit-details-marker{display:none}
+details.file-group summary::before{content:'▸';color:var(--acc);font-size:14px;transition:transform .2s}
+details.file-group[open] summary::before{transform:rotate(90deg)}
+details.file-group summary:hover{border-color:var(--acc);background:var(--card2)}
+details.file-group .links{padding:8px 0 8px 28px;display:flex;flex-direction:column;gap:4px}
+details.file-group .links a{color:var(--txt2);text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px;transition:.15s;display:flex;align-items:center;gap:8px}
+details.file-group .links a:hover{background:var(--card2);color:var(--acc)}
+details.file-group .links a::before{content:'📄';font-size:12px}
 
-/* Account entries */
-.entry{display:flex;gap:8px;padding:4px 0;font-size:12px;font-family:'JetBrains Mono',monospace;border-bottom:1px solid var(--border)}
-.entry:last-child{border-bottom:none}
-.entry .md{color:var(--acc);min-width:50px}
-.entry .dal{color:var(--red);min-width:50px}
-.entry .desc{color:var(--txt2);flex:1}
-
-/* Table */
-.tbl{width:100%;border-collapse:collapse;margin:8px 0;font-size:12px}
-.tbl th{background:var(--card2);padding:6px 8px;text-align:left;border:1px solid var(--border);color:var(--acc);font-weight:700}
-.tbl td{padding:6px 8px;border:1px solid var(--border);color:var(--txt)}
-.tbl tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
-
-/* Collapsible */
-details{margin:6px 0}
-details summary{cursor:pointer;font-weight:700;font-size:13px;color:var(--acc2);padding:6px 0}
-details summary:hover{color:var(--acc)}
-
-/* Vzorce overview */
-.vzorce-grid{display:grid;grid-template-columns:1fr;gap:8px;margin:8px 0}
-
-/* Example approach */
-.example-box{background:linear-gradient(135deg,#1a2332,#1e2a3a);border:1px solid #2a5a8c;border-left:4px solid var(--acc);border-radius:10px;padding:14px;margin-top:12px}
-.example-box h4{font-size:13px;font-weight:800;color:var(--acc);margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.example-box .step{display:flex;gap:10px;margin:6px 0;font-size:12px;line-height:1.7}
-.example-box .step-num{background:var(--acc);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px}
-.example-box .step-txt{color:var(--txt)}
-.example-box .tip{background:rgba(245,159,0,0.1);border:1px solid rgba(245,159,0,0.3);border-radius:6px;padding:8px 10px;margin-top:8px;font-size:12px;color:var(--acc3)}
-.example-box .tip b{color:var(--acc3)}
-.example-box-mgm{border-color:#2a6e5e;border-left-color:var(--acc2);background:linear-gradient(135deg,#1a2e28,#1e3a32)}
-.example-box-mgm h4{color:var(--acc2)}
-.example-box-eko{border-color:#6e5a2a;border-left-color:var(--acc3);background:linear-gradient(135deg,#2e2a1a,#3a321e)}
-.example-box-eko h4{color:var(--acc3)}
-
-/* Print */
-@media print{body{background:#fff;color:#000}.nav,.sub-tabs,header{display:none}.section{border:1px solid #ccc;break-inside:avoid}.formula{border-color:#333;color:#333}}
+.footer{text-align:center;padding:40px 20px;color:var(--txt2);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
 </style>
 </head>
 <body>
-<header>
-<h1>📚 Maturitní Tahák 2026</h1>
-<p>Podnikání v praxi — 20 témat × 3 části (Účetnictví · Management · Ekonomika)</p>
-</header>
 
-<div class="nav" id="topicNav"></div>
-<div class="sub-tabs" id="subTabs">
-<button id="btn-uce" onclick="showSub('uce')">📒 Účetnictví</button>
-<button id="btn-mgm" onclick="showSub('mgm')">📊 Management</button>
-<button id="btn-eko" onclick="showSub('eko')">💰 Ekonomika</button>
+<div class="hero">
+<h1>📚 Maturita 2026</h1>
+<p>Podnikání v praxi — kompletní příprava na praktickou zkoušku</p>
+<span class="badge">20 témat × 3 části = 60 okruhů</span>
 </div>
 
-<div class="content" id="content"></div>
+<div class="grid">
+<a href="tahak_priklady.html" class="card card-blue">
+<span class="icon">🎯</span>
+<h2>Tahák s příklady</h2>
+<p>Kompaktní tahák ke všem 20 tématům s teorií, vzorci a <strong>návody jak řešit příklady</strong> krok za krokem.</p>
+<span class="tag tag-blue">Nový — květen 2026</span>
+</a>
 
-<script>
-const topics = [
-// T1
-{id:1,uce:{title:"Rozvaha, výsledovka",body:`<p><span class="key">Rozvaha</span> = přehled majetku (AKTIVA) a zdrojů jeho krytí (PASIVA). Platí: <b>AKTIVA = PASIVA</b></p>
-<p><b>Aktiva:</b> Dlouhodobý majetek (budovy, stroje, SMV) + Oběžný majetek (zásoby, pohledávky, pokladna, BÚ, ceniny)</p>
-<p><b>Pasiva:</b> Vlastní zdroje (základní kapitál, VH) + Cizí zdroje (závazky, úvěry, nevyplacené mzdy, instituce)</p>
-<div class="formula">Základní kapitál = AKTIVA − ostatní PASIVA</div>
-<p><span class="key">Výsledovka</span> = přehled nákladů (5xx) a výnosů (6xx) za období.</p>
-<div class="formula">VH = Výnosy − Náklady<br>Zisk → VH > 0 | Ztráta → VH < 0</div>
-<details><summary>Postup: Otevření → Účtování → Výsledovka → Uzavření</summary>
-<p>1. Otevřít účetnictví = každou rozvahovou položku zapsat jako T-účet s PS (aktiva MD, pasiva D)<br>
-2. Zaúčtovat operace v období<br>
-3. Sestavit výsledovku (náklady vs. výnosy)<br>
-4. Uzavřít účty = zapsat KS na plusovou stranu</p></details>`},
-mgm:{title:"SWOT analýza",body:`<p><span class="key-g">SWOT</span> = analýza vnitřního a vnějšího prostředí firmy.</p>
-<table class="tbl"><tr><th></th><th>Pozitivní</th><th>Negativní</th></tr>
-<tr><td><b>Vnitřní</b></td><td>S – Silné stránky</td><td>W – Slabé stránky</td></tr>
-<tr><td><b>Vnější</b></td><td>O – Příležitosti</td><td>T – Hrozby</td></tr></table>
-<p>Silné/slabé = to, co firma ovlivní (kvalita, personál, lokalita).<br>Příležitosti/hrozby = vnější faktory (dotace, konkurence, legislativa, ekonomika).</p>
-<p><b>Postup:</b> 1) Identifikovat min. 3-4 body v každé kategorii → 2) Navrhnout doporučení (využít S+O, eliminovat W+T).</p>`},
-eko:{title:"Nepřímé daně – DPH",body:`<p><span class="key-y">DPH</span> = daň z přidané hodnoty, nepřímá daň zahrnutá v ceně zboží/služeb. Sazby: <b>21%</b> (základní), <b>12%</b> (snížená), <b>0%</b>.</p>
-<div class="formula formula-yellow">Cena bez DPH → DPH = základ × sazba<br>Cena s DPH → základ = cena ÷ (1 + sazba) → DPH = cena − základ</div>
-<p><b>DPH na vstupu</b> = co firma zaplatila dodavatelům (nárok na odpočet).<br>
-<b>DPH na výstupu</b> = co firma vybrala od zákazníků.</p>
-<div class="formula formula-yellow">Daňová povinnost = DPH výstup − DPH vstup<br>Kladné → odvod FÚ | Záporné → nadměrný odpočet (FÚ vrací)</div>`}},
+<a href="Maturita_Tahak_20_Temat.html" class="card card-green">
+<span class="icon">📖</span>
+<h2>Kompletní tahák 20 témat</h2>
+<p>Velký přehled se záložkami Účetnictví, Management, Ekonomika a Právo. Podrobná teorie a účetní operace.</p>
+<span class="tag tag-green">Původní projekt</span>
+</a>
+</div>
 
-// T2
-{id:2,uce:{title:"Účtování finančních účtů",body:`<p>Finanční účty = <span class="key">221 BÚ</span>, <span class="key">211 Pokladna</span>, <span class="key">213 Ceniny</span>, <span class="key">261 Peníze na cestě</span>.</p>
-<p><b>Typické operace:</b></p>
-<div class="entry"><span class="md">MD 261</span><span class="dal">D 221</span><span class="desc">Převod z BÚ do pokladny (výběr)</span></div>
-<div class="entry"><span class="md">MD 211</span><span class="dal">D 261</span><span class="desc">Příjem hotovosti v pokladně</span></div>
-<div class="entry"><span class="md">MD 261</span><span class="dal">D 211</span><span class="desc">Odvod hotovosti z pokladny do banky</span></div>
-<div class="entry"><span class="md">MD 221</span><span class="dal">D 261</span><span class="desc">Příjem peněz na BÚ</span></div>
-<div class="entry"><span class="md">MD 221</span><span class="dal">D 662</span><span class="desc">Úroky z BÚ (výnos)</span></div>
-<div class="entry"><span class="md">MD 562</span><span class="dal">D 221</span><span class="desc">Úroky z úvěru (náklad)</span></div>`},
-mgm:{title:"Dotazníkové šetření",body:`<p><span class="key-g">Dotazník</span> = nástroj kvantitativního výzkumu. Typy otázek:</p>
-<p>• <b>Uzavřené</b> (výběr z možností) • <b>Otevřené</b> (volná odpověď) • <b>Škálové</b> (1-5, Likert)</p>
-<p><b>Druhy škál:</b> Pořadová (seřazení), Intervalová (1-7), Bipolární (protikladné póly), Likertova (míra souhlasu).</p>
-<p><b>Zásady:</b> Lichý počet stupňů, možnost "N" (nevím), střídat pozitivní/negativní formulace.</p>
-<p><b>Reliabilita</b> = spolehlivost (shoda posuzovatelů, Cronbach alfa). <b>Validita</b> = měří to, co má (expertní hodnocení).</p>`},
-eko:{title:"Odpisy DM",body:`<p><span class="key-y">Odpisy</span> = postupné rozpuštění pořizovací ceny DM do nákladů. Účetní vs. daňové.</p>
-<table class="tbl"><tr><th>Sk.</th><th>Roky</th><th>Příklad</th></tr>
-<tr><td>1</td><td>3</td><td>PC, mobil, kancelář</td></tr>
-<tr><td>2</td><td>5</td><td>auto, baterie</td></tr>
-<tr><td>3</td><td>10</td><td>klimatizace</td></tr>
-<tr><td>4</td><td>20</td><td>budovy dřevo/plast</td></tr>
-<tr><td>5</td><td>30</td><td>budovy ostatní</td></tr>
-<tr><td>6</td><td>50</td><td>admin. budovy, hotely</td></tr></table>
-<div class="formula formula-yellow">ROVNOMĚRNÝ: odpis = VC × sazba/100<br>Sk.2: 1.rok 11%, další 22,25%</div>
-<div class="formula formula-yellow">ZRYCHLENÝ: 1.rok = VC ÷ koef.<br>Další = 2×ZC ÷ (koef. − n)<br>Sk.2: koef. 1.rok=5, další=6, n=počet odepsaných let</div>`}},
-
-// T3
-{id:3,uce:{title:"Účtování cenin",body:`<p><span class="key">213 Ceniny</span> = poštovní známky, kolky, stravenky, jízdenky, dálniční známky.</p>
-<div class="entry"><span class="md">MD 213</span><span class="dal">D 211</span><span class="desc">Nákup cenin za hotovost</span></div>
-<div class="entry"><span class="md">MD 518</span><span class="dal">D 213</span><span class="desc">Spotřeba známek/jízdenek (služby)</span></div>
-<div class="entry"><span class="md">MD 538</span><span class="dal">D 213</span><span class="desc">Spotřeba kolků (daně a poplatky)</span></div>
-<div class="entry"><span class="md">MD 527</span><span class="dal">D 213</span><span class="desc">Stravenky – zákonné sociální N</span></div>
-<p>Ceniny spotřebované ihned při nákupu → přímo do nákladů (518, 538), ne přes 213.</p>`},
-mgm:{title:"MKTG mix – propagace",body:`<p><span class="key-g">Propagace</span> = komunikace se zákazníkem. Formy:</p>
-<p>• <b>Reklama</b> (TV, tisk, online, outdoor) • <b>Osobní prodej</b> • <b>Podpora prodeje</b> (slevy, vzorky, věrnostní programy) • <b>PR</b> (tiskové zprávy, sponzoring) • <b>Přímý marketing</b> (e-mail, telemarketing)</p>
-<p><b>Online:</b> Sociální sítě, SEO/Google Ads, e-mailing, influenceři.</p>
-<p><b>Při návrhu kampaně:</b> 1) Cílová skupina → 2) Kanály → 3) Rozpočet → 4) Distribuce → 5) Měření efektivity.</p>`},
-eko:{title:"Zásobovací činnost",body:`<p>Řízení zásob = zajistit plynulý chod při optimálních nákladech.</p>
-<div class="formula formula-yellow">ČN = ½ × běžná zásoba + pojistná + technická (dny)</div>
-<div class="formula formula-yellow">NZ = ČN × denní spotřeba (naturálie: ks, kg, m)</div>
-<div class="formula formula-yellow">FN = NZ × cena za jednotku (Kč)</div>
-<div class="formula formula-yellow">Počáteční zásoba + Nákup = Spotřeba + Konečná zásoba</div>`}},
-
-// T4
-{id:4,uce:{title:"Účtování pořízení materiálu",body:`<p>Způsob A: přes účet <span class="key">111 – Pořízení materiálu</span>, poté převod na <span class="key">112 – Materiál na skladě</span>.</p>
-<div class="entry"><span class="md">MD 111</span><span class="dal">D 321</span><span class="desc">FP za materiál (cena bez DPH)</span></div>
-<div class="entry"><span class="md">MD 343</span><span class="dal">D 321</span><span class="desc">DPH na vstupu z FP</span></div>
-<div class="entry"><span class="md">MD 111</span><span class="dal">D 321</span><span class="desc">FP za dopravu materiálu (bez DPH)</span></div>
-<div class="entry"><span class="md">MD 112</span><span class="dal">D 111</span><span class="desc">Příjemka – převod na sklad (PC = mat. + doprava)</span></div>
-<p><b>Pořizovací cena</b> = cena materiálu + vedlejší pořizovací náklady (doprava).</p>`},
-mgm:{title:"Personální zajištění výroby",body:`<p>Cíl: zajistit správný počet zaměstnanců se správnou kvalifikací.</p>
-<div class="formula">Fond prac. doby = 365 − neprac.dny − dovolená − nemocnost</div>
-<div class="formula">Počet výrobků/den = délka směny ÷ čas na 1 ks</div>
-<div class="formula">Potřeba zaměstnanců = celkový počet prac. dnů ÷ fond 1 zaměstnance</div>
-<p><b>Příklad:</b> 12 000 ks, 2h/ks, 4ks/směna, fond 201 dnů → 12000÷4=3000 dnů → 3000÷201=15 zaměstnanců.</p>`},
-eko:{title:"Hospodaření podniku",body:`<p>Procentuální využití kapacity (restaurace, výroba):</p>
-<div class="formula formula-yellow">Využití = (skuteční hosté ÷ max. kapacita) × 100</div>
-<div class="formula formula-yellow">Max. kapacita = místa × obrátka × dny</div>
-<p><b>Příklad:</b> 60 míst, obrátka 3, 30 dní = max 5400 hostů. Tržby 1 620 000 ÷ 420 Kč = 3857 hostů → 71,4 %.</p>`}},
-
-// T5
-{id:5,uce:{title:"Účtování pořízení zboží",body:`<p>Podobné jako materiál, ale účty <span class="key">131/132</span>.</p>
-<div class="entry"><span class="md">MD 131</span><span class="dal">D 321</span><span class="desc">FP nákup zboží (bez DPH)</span></div>
-<div class="entry"><span class="md">MD 343</span><span class="dal">D 321</span><span class="desc">DPH na vstupu</span></div>
-<div class="entry"><span class="md">MD 132</span><span class="dal">D 131</span><span class="desc">Příjemka – zboží na sklad</span></div>`},
-mgm:{title:"Hodnocení zaměstnanců",body:`<p>Systematický proces posuzování výkonu. <b>Kritéria:</b> docházka, výkonnost, týmová spolupráce, BOZP, kvalita, iniciativa.</p>
-<p><b>Ekonomické stimuly:</b> odměny za výkon, příplatky, příspěvky.<br><b>Neekonomické:</b> kariérní růst, flexibilní směny, pochvala, školení.</p>
-<p><b>Hodnotící formulář:</b> max 6 kritérií, bodová škála (1-5), celkové skóre → rozdělení odměn.</p>`},
-eko:{title:"Nezaměstnanost",body:`<p>Typy: <span class="key-y">Frikční</span> (krátkodobá, přirozená), <span class="key-y">Strukturální</span> (nesoulad kvalifikace), <span class="key-y">Cyklická</span> (hospodářský pokles), <span class="key-y">Sezónní</span> (zemědělství, stavebnictví), <span class="key-y">Dobrovolná</span>.</p>
-<p><b>Podpora v nezam.:</b> do 52 let = 5 měsíců, 52-57 = 8 měsíců, nad 57 = 11 měsíců.<br>Sazby: 1.-2. měsíc 80%, 3.-4. měsíc 50%, zbytek 40%. Max 38 537 Kč.</p>`}},
-
-// T6
-{id:6,uce:{title:"Účtování zásob – převod, vyskladnění",body:`<div class="entry"><span class="md">MD 112</span><span class="dal">D 111</span><span class="desc">Příjemka materiálu na sklad</span></div>
-<div class="entry"><span class="md">MD 501</span><span class="dal">D 112</span><span class="desc">Výdejka – spotřeba materiálu</span></div>
-<div class="entry"><span class="md">MD 132</span><span class="dal">D 131</span><span class="desc">Příjemka zboží na sklad</span></div>
-<div class="entry"><span class="md">MD 504</span><span class="dal">D 132</span><span class="desc">Vyskladnění zboží (prodáno)</span></div>`},
-mgm:{title:"Optimalizace mzdových nákladů",body:`<p>Cíl: snížit mzdové N při zachování produktivity. Nástroje:</p>
-<p>• Revize benefitů (daňově uznatelné vs. neúčinné) • Automatizace procesů • Flexibilní úvazky • DPP/DPČ místo HPP pro nepravidelné práce • Stravenkový paušál (daňově uznatelný)</p>
-<div class="formula">Celkové mzdové N = hrubé mzdy × 1,338 (odvody 33,8%)</div>
-<p><b>Daňově NEúčinné:</b> firemní večírky, dárkové poukazy k jubileu.</p>`},
-eko:{title:"Monetární politika",body:`<p><span class="key-y">ČNB</span> řídí množství peněz v ekonomice. Nástroje: úrokové sazby, repo operace, devizové intervence, povinné min. rezervy.</p>
-<p><b>2T repo sazba</b> = hlavní nástroj. Snížení → expanzivní politika (levnější úvěry, podpora spotřeby, riziko inflace). Zvýšení → restriktivní (dražší úvěry, brzdí inflaci).</p>
-<p><b>Cíl ČNB:</b> cenová stabilita (inflační cíl 2%).</p>`}},
-
-// T7
-{id:7,uce:{title:"Účtování prodeje zboží, materiálu",body:`<p><b>Prodej zboží:</b></p>
-<div class="entry"><span class="md">MD 504</span><span class="dal">D 132</span><span class="desc">Vyskladnění zboží (v PC)</span></div>
-<div class="entry"><span class="md">MD 211/311</span><span class="dal">D 604</span><span class="desc">Tržby za zboží (bez DPH)</span></div>
-<div class="entry"><span class="md">MD 211/311</span><span class="dal">D 343</span><span class="desc">DPH na výstupu</span></div>
-<p><b>Prodej materiálu:</b></p>
-<div class="entry"><span class="md">MD 542</span><span class="dal">D 112</span><span class="desc">Prodaný materiál (v PC)</span></div>
-<div class="entry"><span class="md">MD 311</span><span class="dal">D 642</span><span class="desc">Tržby za materiál + DPH na 343</span></div>`},
-mgm:{title:"Získávání zaměstnanců",body:`<p><b>Postup:</b> 1) Definice požadavků → 2) Inzerát (portály, web, sociální sítě, ÚP) → 3) Předvýběr (CV) → 4) Pohovor → 5) Přijetí.</p>
-<p><b>Dokumenty od uchazeče:</b> CV, motivační dopis, OP, zdravotní způsobilost, výpis z RT, osvědčení o vzdělání.</p>
-<p><b>Dokumenty firmy:</b> pracovní smlouva, mzdový výměr, přihláška SP/ZP, osobní karta, prohlášení k dani, BOZP.</p>`},
-eko:{title:"Fiskální politika",body:`<p>= opatření vlády přes příjmy a výdaje státního rozpočtu.</p>
-<div class="formula formula-yellow">Saldo = příjmy − výdaje<br>Přebytkový (P>V) | Vyrovnaný (P=V) | Schodkový (P<V)</div>
-<p><b>Expanzivní:</b> snížení daní / zvýšení výdajů → podpora ekonomiky.<br><b>Restriktivní:</b> zvýšení daní / snížení výdajů → brzdění inflace, snížení schodku.</p>
-<p>Zvýšení DPH → zdražení → nižší spotřeba → krátkodobě vyšší příjmy, dlouhodobě riziko poklesu.</p>`}},
-
-// T8
-{id:8,uce:{title:"Účtování spotřeby materiálu, cenin",body:`<div class="entry"><span class="md">MD 501</span><span class="dal">D 112</span><span class="desc">Spotřeba materiálu (výdejka)</span></div>
-<div class="entry"><span class="md">MD 518</span><span class="dal">D 213</span><span class="desc">Spotřeba známek, jízdenek</span></div>
-<div class="entry"><span class="md">MD 538</span><span class="dal">D 213</span><span class="desc">Spotřeba kolků</span></div>
-<div class="entry"><span class="md">MD 518</span><span class="dal">D 211</span><span class="desc">Nákup + spotřeba známek ihned (VPD)</span></div>
-<div class="entry"><span class="md">MD 538</span><span class="dal">D 211</span><span class="desc">Nákup + spotřeba dálničních známek ihned</span></div>`},
-mgm:{title:"Motivační dopis a CV",body:`<p><b>CV:</b> Jméno, kontakt, praxe (od nejnovější), vzdělání, dovednosti, jazyky. Stručně, max 1-2 strany.</p>
-<p><b>Motivační dopis:</b> Oslovení → proč se hlásím → co nabízím (dovednosti, zkušenosti) → proč právě tato firma → závěr s kontaktem.</p>
-<p>Přizpůsobit konkrétní pozici! Zdůraznit relevantní zkušenosti, být konkrétní.</p>`},
-eko:{title:"Sociální politika",body:`<p><b>Podpora v nezaměstnanosti:</b> Evidence na ÚP do 3 prac. dnů od ukončení PP.</p>
-<p>Podpůrčí doba dle věku: do 52 let = 5 měsíců, 52-57 = 8 měsíců, nad 57 = 11 měsíců.</p>
-<table class="tbl"><tr><th>Měsíc</th><th>Sazba z ČMV</th></tr>
-<tr><td>1.-2.</td><td>80 %</td></tr><tr><td>3.-4.</td><td>50 %</td></tr><tr><td>5.+</td><td>40 %</td></tr></table>
-<p>Max. podpora 2026: <b>38 537 Kč</b>. ČMV = průměr za poslední kvartál.</p>`}},
-
-// T9
-{id:9,uce:{title:"Účtování pořízení a zařazení DHM",body:`<p>DHM = nad 80 000 Kč, doba použitelnosti > 1 rok.</p>
-<div class="entry"><span class="md">MD 042</span><span class="dal">D 321</span><span class="desc">FP nákup stroje/zařízení (bez DPH)</span></div>
-<div class="entry"><span class="md">MD 343</span><span class="dal">D 321</span><span class="desc">DPH na vstupu</span></div>
-<div class="entry"><span class="md">MD 042</span><span class="dal">D 321</span><span class="desc">FP instalace (bez DPH) – vedlejší PC</span></div>
-<div class="entry"><span class="md">MD 022</span><span class="dal">D 042</span><span class="desc">Zařazení do užívání (celková PC)</span></div>
-<p><b>PC = cena pořízení + vedlejší náklady</b> (doprava, instalace, montáž).</p>`},
-mgm:{title:"Krizová komunikace",body:`<p>Řízení informací při ohrožení reputace/stability firmy.</p>
-<p><b>Kroky:</b> 1) Rychlá identifikace problému → 2) Porada vedení (výroba, logistika, obchod, zákazn. servis) → 3) Interní komunikace → 4) Externí komunikace (transparentní, rychlá) → 5) Kompenzace → 6) Prevence opakování.</p>
-<p><b>Zásady:</b> Rychlost, transparentnost, empatie, převzetí odpovědnosti, konkrétní řešení.</p>`},
-eko:{title:"HDP",body:`<p><span class="key-y">HDP</span> = celková hodnota finálních statků a služeb vyrobených na území státu za období.</p>
-<div class="formula formula-yellow">HDP_nom = Σ(množství × cena daného roku)<br>HDP_real = Σ(množství daného roku × cena základního roku)</div>
-<div class="formula formula-yellow">Míra inflace = (HDP_nom/HDP_real − 1) × 100%</div>
-<p><b>Metody:</b> Produkční (přidaná hodnota), Výdajová (C+I+G+NX).</p>`}},
-
-// T10
-{id:10,uce:{title:"Účtování DM – odpisy",body:`<div class="entry"><span class="md">MD 551</span><span class="dal">D 082</span><span class="desc">Odpis DHM (roční předpis)</span></div>
-<p>551 = náklad (snižuje VH), 082 = oprávky (korekce hodnoty majetku).</p>
-<p><b>ZC</b> = Vstupní cena − oprávky (suma odpisů).</p>`},
-mgm:{title:"Dovednosti a osobnost manažera",body:`<p><b>Úrovně managementu:</b> TOP (strategické), střední (taktické), liniový (operativní).</p>
-<p><b>Styly řízení:</b> Byrokratický, Autoritativní, Demokratický, Liberální.</p>
-<p><b>Klíčové dovednosti:</b> Komunikace, analytické myšlení, rozhodování, delegování, motivace, time management.</p>
-<p><b>MBA</b> = Master of Business Administration. <b>Koučink</b> = hledání řešení společně s klientem.</p>`},
-eko:{title:"Bod zvratu",body:`<div class="formula formula-yellow">BZ = Fixní náklady ÷ (Prodejní cena/ks − Variabilní N/ks)</div>
-<div class="formula formula-yellow">TC = FC + VC</div>
-<p><b>Příklad:</b> FC=80 000, P=90 Kč, VN=50 Kč → BZ = 80000÷(90−50) = <b>2000 ks</b></p>
-<p>Pod BZ = ztráta. Nad BZ = zisk. Každý další prodaný kus nad BZ tvoří zisk.</p>`}},
-
-// T11
-{id:11,uce:{title:"Účtování pohledávek a závazků",body:`<p><span class="key">311</span> = pohledávky za odběrateli, <span class="key">321</span> = závazky dodavatelům.</p>
-<div class="entry"><span class="md">MD 311</span><span class="dal">D 602/604</span><span class="desc">FV za služby/zboží (výnos)</span></div>
-<div class="entry"><span class="md">MD 221</span><span class="dal">D 311</span><span class="desc">Úhrada FV od odběratele na BÚ</span></div>
-<div class="entry"><span class="md">MD 5xx</span><span class="dal">D 321</span><span class="desc">FP za nákup (náklad)</span></div>
-<div class="entry"><span class="md">MD 321</span><span class="dal">D 221</span><span class="desc">Úhrada FP dodavateli z BÚ</span></div>`},
-mgm:{title:"Hodnotící metody",body:`<p><b>Bipolární škála:</b> protikladné vlastnosti na škále 1-7 (např. drahá ↔ levná).</p>
-<p><b>Likertova škála:</b> míra souhlasu (plně souhlasím → plně nesouhlasím).</p>
-<p><b>Vyhodnocení:</b> Průměry, mediány, procenta. Bipolární graf pro vizualizaci.</p>`},
-eko:{title:"Mzdy a jejich výpočet",body:`<table class="tbl"><tr><th>Složka</th><th>Zaměstnanec</th><th>Zaměstnavatel</th></tr>
-<tr><td>Důchodové poj.</td><td>6,5 %</td><td rowspan="2">24,8 %</td></tr>
-<tr><td>Nemocenské poj.</td><td>0,6 %</td></tr>
-<tr><td>Zdravotní poj.</td><td>4,5 %</td><td>9,0 %</td></tr>
-<tr><td>Záloha na daň</td><td>15 %</td><td>—</td></tr></table>
-<div class="formula formula-yellow">Čistá mzda = HM − ZP(4,5%) − SP(7,1%) − záloha daně<br>Záloha daně = HM×0,15 − sleva poplatník(2570) − děti</div>
-<p>Slevy: poplatník 2570/měs, 1. dítě 1267, 2. dítě 1860, 3.+ dítě 2320.</p>`}},
-
-// T12
-{id:12,uce:{title:"Účtování nákladů a výnosů",body:`<p><span class="key">5xx = Náklady</span> (MD+), <span class="key">6xx = Výnosy</span> (D+). Nemají PS!</p>
-<p><b>Hlavní nákladové:</b> 501 spotřeba mat., 502 energie, 518 služby, 521 mzdy, 524 zákonné SP/ZP, 551 odpisy, 562 úroky.</p>
-<p><b>Hlavní výnosové:</b> 601 tržby za výrobky, 602 tržby za služby, 604 tržby za zboží, 642 tržby z prodeje mat., 662 úroky z BÚ.</p>`},
-mgm:{title:"MKTG mix – cena",body:`<p><b>Metody stanovení ceny:</b></p>
-<p>• <b>Nákladová:</b> N/ks + marže → P = N/ks ÷ (1−marže) [shora] nebo N/ks × (1+marže) [zdola]<br>
-• <b>Konkurenční:</b> porovnání s konkurenty (přepočet na stejnou jednotku!)<br>
-• <b>Hodnotová:</b> dle vnímané hodnoty zákazníkem</p>
-<div class="formula">Marže shora: P = N/ks ÷ 0,85 (při 15% marži)<br>Marže zdola: P = N/ks × 1,15 (přirážka 15%)</div>`},
-eko:{title:"Podnikatelský plán",body:`<p><b>Cesta od nápadu k plánu:</b> 1. Nápad → 2. Příležitost → 3. Mise → 4. Vize → 5. Strategie → Business plán</p>
-<p><b>Struktura:</b> Vize a cíle, forma podnikání, legislativa, nabídka produktů, dodavatelsko-odběratelské vztahy, SWOT, finanční plán (pesimistický/realistický/optimistický), shrnutí.</p>
-<p><b>Mise</b> = proč existujeme (přítomnost). <b>Vize</b> = kam směřujeme (5-10 let).</p>`}},
-
-// T13
-{id:13,uce:{title:"Účtování služební cesty",body:`<div class="entry"><span class="md">MD 335</span><span class="dal">D 211</span><span class="desc">VPD – záloha zaměstnanci na SC</span></div>
-<div class="entry"><span class="md">MD 512</span><span class="dal">D 335</span><span class="desc">VÚD – vyúčtování cestovného</span></div>
-<div class="entry"><span class="md">MD 512</span><span class="dal">D 335</span><span class="desc">VÚD – vyúčtování ubytování</span></div>
-<div class="entry"><span class="md">MD 211</span><span class="dal">D 335</span><span class="desc">PPD – vrácení zbytku zálohy</span></div>
-<div class="entry"><span class="md">MD 331</span><span class="dal">D 335</span><span class="desc">VÚD – srážka nevyúčtované zálohy ze mzdy</span></div>`},
-mgm:{title:"Obsazení volné pozice",body:`<p><b>= Propagace</b> volného místa formou náboru (leták, inzerát).</p>
-<p><b>Obsah inzerátu:</b> Název pozice, popis náplně práce, požadavky (vzdělání, praxe, dovednosti), nabídka (mzda, benefity, prostředí), kontakt.</p>
-<p><b>Distribuce:</b> Pracovní portály, web firmy, sociální sítě, ÚP, veletrhy, školy.</p>
-<p>Formát letáku: barvy firmy, logo, QR kód, stručné a výstižné sdělení.</p>`},
-eko:{title:"Daň z příjmu FO",body:`<div class="formula formula-yellow">Základ daně = hrubé příjmy − nezdanitelné části<br>(penzijní pojištění, úroky z hypotéky, dary)</div>
-<div class="formula formula-yellow">Daň = základ × 15%<br>Daň po slevách = daň − slevy (poplatník 30840/rok)<br>Výsledek = daň po slevách − zaplacené zálohy<br>Kladné → nedoplatek | Záporné → přeplatek (vratka)</div>
-<p><b>Doklady:</b> Potvrzení o příjmech od zaměstnavatelů, potvrzení o penzijním poj., potvrzení o úrocích z hypotéky.</p>`}},
-
-// T14
-{id:14,uce:{title:"Účtování nákupu (FP)",body:`<div class="entry"><span class="md">MD 501/502/518</span><span class="dal">D 321</span><span class="desc">FP za materiál/energii/služby (bez DPH)</span></div>
-<div class="entry"><span class="md">MD 343</span><span class="dal">D 321</span><span class="desc">DPH na vstupu</span></div>
-<div class="entry"><span class="md">MD 321</span><span class="dal">D 221</span><span class="desc">Úhrada FP z BÚ</span></div>
-<p>Pokud je cena <b>včetně DPH</b> → nejdřív vypočítat základ: cena ÷ (1+sazba).</p>
-<p>Účet 321 = závazky z obchodních vztahů (pasivní účet, D+).</p>`},
-mgm:{title:"MKTG mix – výrobek",body:`<p><b>Životní cyklus výrobku:</b> Vývoj → Zavedení → Růst → Zralost → Pokles</p>
-<p><b>Vrstvy produktu:</b> Základní (funkce) → Očekávaný (kvalita, balení) → Rozšířený (servis, záruka) → Potenciální (inovace).</p>
-<p>Ve fázi zavedení: vysoká cena, omezená distribuce, silný marketing. Ve fázi zralosti: nutná inovace (nové příchutě, obaly, trhy).</p>`},
-eko:{title:"Náklady podniku",body:`<p><b>Fixní N</b> (nezávisí na objemu): nájem, mzdy stálých zaměstnanců, pojištění, odpisy.<br><b>Variabilní N</b> (závisí na objemu): suroviny, materiál, brigádníci.</p>
-<div class="formula formula-yellow">Celkové N = Fixní N + Variabilní N</div>
-<p><b>Optimalizace:</b> Sezónní menu, revize dodavatelů, úsporné spotřebiče, optimalizace směn, prevence oprav.</p>`}},
-
-// T15
-{id:15,uce:{title:"Účtování prodeje (FV)",body:`<div class="entry"><span class="md">MD 311</span><span class="dal">D 602</span><span class="desc">FV za služby (bez DPH)</span></div>
-<div class="entry"><span class="md">MD 311</span><span class="dal">D 343</span><span class="desc">DPH na výstupu</span></div>
-<div class="entry"><span class="md">MD 221</span><span class="dal">D 311</span><span class="desc">Úhrada FV na BÚ</span></div>
-<div class="entry"><span class="md">MD 211</span><span class="dal">D 311</span><span class="desc">Úhrada FV v hotovosti</span></div>`},
-mgm:{title:"Odměňování a motivace",body:`<p><b>Formy:</b> Mzda, prémie, bonusy + benefity (stravenky, Multisport, home office, cafeteria, penzijní příspěvek, vzdělávání).</p>
-<p><b>Cafeteria systém</b> = zaměstnanec si volí benefity dle svých preferencí (Edenred, Benefit Plus).</p>
-<p><b>SMART cíle pro benefity:</b> Specifické, Měřitelné, Achievable, Relevantní, Časově ohraničené.</p>
-<p>Přizpůsobit věku a pozici! Mladší → flexibilita, sport. Starší → zdraví, penzijní.</p>`},
-eko:{title:"Zdravotní pojištění",body:`<table class="tbl"><tr><th></th><th>Sazba</th><th>Z čeho</th></tr>
-<tr><td>Zaměstnanec</td><td>4,5 %</td><td>z HM</td></tr>
-<tr><td>Zaměstnavatel</td><td>9 %</td><td>z HM</td></tr>
-<tr><td>OSVČ</td><td>13,5 %</td><td>z 50% vyměř. základu</td></tr></table>
-<div class="formula formula-yellow">OSVČ: VZ = (příjmy−výdaje) × 0,50<br>ZP = VZ × 0,135<br>Min. záloha 2026: 3 306 Kč/měsíc</div>`}},
-
-// T16
-{id:16,uce:{title:"Účtování DPH na vstupu",body:`<p>DPH na vstupu = DPH zaplacené dodavatelům. Účet <span class="key">343 MD</span>.</p>
-<div class="entry"><span class="md">MD 5xx</span><span class="dal">D 321</span><span class="desc">Náklad (základ bez DPH)</span></div>
-<div class="entry"><span class="md">MD 343</span><span class="dal">D 321</span><span class="desc">DPH na vstupu</span></div>
-<p>Na konci období: pokud 343 MD > 343 D → <b>nadměrný odpočet</b> (FÚ vrací).</p>`},
-mgm:{title:"Pracovní smlouva",body:`<p><b>Povinné náležitosti:</b> Druh práce, místo výkonu práce, den nástupu.</p>
-<p><b>Volitelné:</b> Zkušební doba (max 3 měsíce / 6 u vedoucích), délka PP (určitá/neurčitá), mzdové podmínky, dovolená.</p>
-<p><b>Výpovědní doba:</b> min. 2 měsíce, běží od 1. dne následujícího měsíce.</p>
-<p>Smlouva musí být písemná, min. 2 vyhotovení (zaměstnanec + zaměstnavatel).</p>`},
-eko:{title:"Sociální pojištění",body:`<table class="tbl"><tr><th></th><th>Sazba</th><th>Z čeho</th></tr>
-<tr><td>Zaměstnanec</td><td>7,1 % (6,5%+0,6%)</td><td>z HM</td></tr>
-<tr><td>Zaměstnavatel</td><td>24,8 %</td><td>z HM</td></tr>
-<tr><td>OSVČ</td><td>29,2 %</td><td>z 55% vyměř. základu</td></tr></table>
-<div class="formula formula-yellow">OSVČ: VZ = (příjmy−výdaje) × 0,55<br>SP = VZ × 0,292<br>Min. záloha 2026: 5 720 Kč/měsíc</div>`}},
-
-// T17
-{id:17,uce:{title:"Účtování DPH na výstupu",body:`<p>DPH na výstupu = DPH vybrané od zákazníků. Účet <span class="key">343 D</span>.</p>
-<div class="entry"><span class="md">MD 311</span><span class="dal">D 6xx</span><span class="desc">Výnos (základ bez DPH)</span></div>
-<div class="entry"><span class="md">MD 311</span><span class="dal">D 343</span><span class="desc">DPH na výstupu</span></div>
-<p>Na konci období: pokud 343 D > 343 MD → <b>daňová povinnost</b> (odvod FÚ).</p>
-<div class="entry"><span class="md">MD 343</span><span class="dal">D 221</span><span class="desc">Úhrada DPH finančnímu úřadu</span></div>`},
-mgm:{title:"Produktivita práce",body:`<div class="formula">Produktivita = [příjmy − (výdaje+režie+odpisy+úroky+personální N)] ÷ počet zaměstnanců</div>
-<p><b>Faktory:</b> Technologie, kvalifikace, motivace, organizace práce, pracovní prostředí.</p>
-<p><b>Zvyšování:</b> Time management, digitální nástroje (Trello, Asana), eliminace rušení, ergonomie, zpětná vazba, work-life balance.</p>`},
-eko:{title:"Bankovní soustava",body:`<p><b>Dvoustupňová:</b> ČNB (centrální) + komerční banky.</p>
-<p><b>ČNB:</b> Měnová politika, emise bankovek, dohled nad fin. trhem, správa devizových rezerv.</p>
-<p><b>Komerční banky:</b> Přijímání vkladů, poskytování úvěrů, platební styk.</p>
-<p><b>RPSN</b> = roční procentní sazba nákladů (celkové náklady úvěru včetně poplatků).</p>
-<p><b>Termínovaný vklad:</b> Úrok − 15% srážková daň = čistý výnos.</p>`}},
-
-// T18
-{id:18,uce:{title:"Účtování odvodů daně ze mzdy",body:`<div class="entry"><span class="md">MD 331</span><span class="dal">D 342</span><span class="desc">Předpis zálohy daně z příjmů za zaměstnance</span></div>
-<div class="entry"><span class="md">MD 342</span><span class="dal">D 221</span><span class="desc">Úhrada zálohy daně FÚ</span></div>
-<p>342 = Ostatní přímé daně (pasivní účet, D = závazek vůči FÚ).</p>`},
-mgm:{title:"Personální pohovor",body:`<p><b>Postup:</b> 1) Zveřejnění nabídky → 2) Předvýběr CV → 3) Pozvání → 4) Pohovor → 5) Zkušební úkol → 6) Výběr.</p>
-<p><b>Otázky k ověření:</b> Odborné znalosti, motivace, zkušenosti, řešení situací, představy o spolupráci.</p>
-<p><b>Nevhodné otázky:</b> Osobní život, plánování rodiny, náboženství, orientace, zdravotní stav — vše, co nesouvisí s výkonem pozice!</p>`},
-eko:{title:"Plánování počtu zaměstnanců",body:`<div class="formula formula-yellow">Celkový čas = množství × čas/ks (v minutách → ÷60 = hodiny)</div>
-<div class="formula formula-yellow">Fond prac. doby = (365−neprac−dovolená−nemoc) × hodiny/směna</div>
-<div class="formula formula-yellow">Počet zaměstnanců = celkový čas ÷ fond 1 zaměstnance</div>
-<p><b>Příklad:</b> 720t pšenice×6min + 360t kukuřice×9min = 126 000h. Fond=213d×12h=2556h → 126000÷2556 = 50 zaměstnanců.</p>`}},
-
-// T19
-{id:19,uce:{title:"Účtování zúčtování s institucemi",body:`<div class="entry"><span class="md">MD 524</span><span class="dal">D 336</span><span class="desc">Předpis SP+ZP za zaměstnavatele (náklad)</span></div>
-<div class="entry"><span class="md">MD 331</span><span class="dal">D 336</span><span class="desc">Předpis SP+ZP za zaměstnance (srážka ze mzdy)</span></div>
-<div class="entry"><span class="md">MD 336</span><span class="dal">D 221</span><span class="desc">Úhrada odvodů SP+ZP institucím</span></div>
-<p>336 = Zúčtování s institucemi SP a ZP (pasivní účet).</p>`},
-mgm:{title:"Rozhodovací metody",body:`<p><b>Vícekriteriální rozhodování</b> s váhami:</p>
-<p>1) Stanovit kritéria (renomé, dostupnost, cena…)<br>2) Přiřadit váhy (součet = 100%)<br>3) Ohodnotit varianty body (1-10)<br>4) Vážený průměr = body × váha<br>5) Nejvyšší skóre = nejlepší varianta.</p>
-<div class="formula">Skóre = Σ (body_kritérium × váha_kritérium)</div>`},
-eko:{title:"Plánování personálních nákladů",body:`<div class="formula formula-yellow">Měsíční HM všech = počet × HM/zaměstnance<br>Roční HM = měsíční × 12</div>
-<div class="formula formula-yellow">Odvody zaměstnavatele = 33,8% (24,8% SP + 9% ZP)<br>Celkové mzdové N = HM × 1,338</div>
-<p><b>Příklad:</b> 50 zam × 31 500 = 1 575 000/měs. S odvody: 1 575 000 × 1,338 = 2 107 350 Kč/měs.</p>`}},
-
-// T20
-{id:20,uce:{title:"Zúčtování hrubých mezd",body:`<div class="entry"><span class="md">MD 521</span><span class="dal">D 331</span><span class="desc">Předpis hrubých mezd (náklad)</span></div>
-<div class="entry"><span class="md">MD 524</span><span class="dal">D 336</span><span class="desc">SP+ZP za zaměstnavatele</span></div>
-<div class="entry"><span class="md">MD 331</span><span class="dal">D 336</span><span class="desc">SP+ZP za zaměstnance (srážka)</span></div>
-<div class="entry"><span class="md">MD 331</span><span class="dal">D 342</span><span class="desc">Záloha daně za zaměstnance</span></div>
-<div class="entry"><span class="md">MD 331</span><span class="dal">D 221</span><span class="desc">Výplata čistých mezd na účty</span></div>`},
-mgm:{title:"Vize, cíle podnikatelského plánu",body:`<p><b>Mise</b> = proč existujeme? (přítomnost, účel firmy, hodnota pro zákazníky).<br>
-<b>Vize</b> = kam směřujeme? (budoucí stav, 5-10 let, inspirativní, zapamatovatelná).<br>
-<b>Strategie</b> = jak tam dojdeme? (marketing, finance, provoz, HR).<br>
-<b>Business plán</b> = mapa s rozpočtem (kdo, kdy, za kolik, s čím).</p>
-<p><b>Dobrá vize:</b> Jednoduchá, odráží hodnoty, ukazuje směr, inspiruje.</p>`},
-eko:{title:"Inflace",body:`<p><span class="key-y">Inflace</span> = dlouhodobý růst cenové hladiny → pokles hodnoty peněz.</p>
-<p>Druhy: Mírná (2-5%), Pádivá (10-50%), Hyperinflace (100%+). <b>Deflace</b> = pokles cen.</p>
-<div class="formula formula-yellow">% znehodnocení = (1 − nová_kupní_síla/původní) × 100</div>
-<div class="formula formula-yellow">Ztráta kupní síly = mzda × inflace/100</div>
-<div class="formula formula-yellow">Reálná hodnota úspor = úspory ÷ (1 + inflace/100)^t</div>
-<p><b>Ochrana:</b> Termínovaný vklad (úrok − 15% daň), investice, nemovitosti.</p>`}}
-];
-
-let currentTopic = 1;
-let currentSub = 'uce';
-
-function renderNav(){
-const nav=document.getElementById('topicNav');
-nav.innerHTML=topics.map(t=>`<button id="nav-${t.id}" onclick="showTopic(${t.id})">${t.id}</button>`).join('');
-}
-
-function showTopic(id){
-currentTopic=id;
-document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-document.getElementById('nav-'+id).classList.add('active');
-renderContent();
-}
-
-function showSub(sub){
-currentSub=sub;
-document.querySelectorAll('.sub-tabs button').forEach(b=>{b.className=''});
-document.getElementById('btn-'+sub).classList.add('active-'+sub);
-renderContent();
-}
-
-function renderContent(){
-const t=topics.find(x=>x.id===currentTopic);
-const sub=t[currentSub];
-const colors={uce:'badge-uce',mgm:'badge-mgm',eko:'badge-eko'};
-const labels={uce:'Účetnictví',mgm:'Management & Marketing',eko:'Ekonomika'};
-const boxClass={uce:'example-box',mgm:'example-box example-box-mgm',eko:'example-box example-box-eko'};
-const ex=examples[currentTopic]?.[currentSub]||'';
-document.getElementById('content').innerHTML=`
 <div class="section">
-<h3><span class="badge ${colors[currentSub]}">${labels[currentSub]}</span> Téma ${t.id}: ${sub.title}</h3>
-${sub.body}
-${ex?`<div class="${boxClass[currentSub]}"><h4>🎯 Jak na příklad</h4>${ex}</div>`:''}
-</div>`;
-}
+<div class="section-title">📁 Studijní materiály ke stažení</div>
 
-const examples={
-1:{
-uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Přečti si zadání a <b>vypiš všechny položky</b> — u každé rozhodni: je to AKTIVUM nebo PASIVUM?</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Aktiva: budova (021), stroje (022), materiál (112), zboží (132), pohledávky (311, 335), pokladna (211), BÚ (221), ceniny (213)</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Pasiva: základní kapitál (411), závazky (321), úvěr (231/461), nevyplacené mzdy (331), instituce (336), zálohy daně (342), DPH (343)</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Sečti aktiva, sečti známá pasiva. <b>ZK = aktiva − ostatní pasiva</b></span></div>
-<div class="step"><span class="step-num">5</span><span class="step-txt">Zkontroluj: A = P? Pokud ne, hledej chybu v zařazení položek.</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Nadměrný odpočet DPH = pohledávka (aktivum!). Nedoplatek DPH = závazek (pasivum).</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Přečti si popis firmy — pochop, čím se zabývá, kde působí, kdo jsou zákazníci.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Silné stránky (S): co firma dělá dobře? (kvalita, lokalita, vybavení, tým)</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Slabé stránky (W): co jí chybí? (kapacita, propagace, sezónnost)</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Příležitosti (O): co může využít? (dotace, nové trhy, trendy, spolupráce)</span></div>
-<div class="step"><span class="step-num">5</span><span class="step-txt">Hrozby (T): co jí hrozí? (konkurence, legislativa, ekonomická situace)</span></div>
-<div class="step"><span class="step-num">6</span><span class="step-txt">Napiš min. <b>3-4 body do každé kategorie</b>. Na závěr navrhni doporučení.</span></div>
-<div class="tip"><b>💡 Tip:</b> S a W jsou VNITŘNÍ (firma ovlivní), O a T jsou VNĚJŠÍ (firma neovlivní). Doporučení: jak využít S+O a jak eliminovat W+T.</div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">U každé položky zjisti: je cena <b>bez DPH</b> nebo <b>včetně DPH</b>?</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Bez DPH → DPH = základ × sazba (např. 25000 × 0,12 = 3000)</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">S DPH → základ = cena ÷ (1+sazba) → DPH = cena − základ (např. 28000 ÷ 1,12 = 25000 → DPH = 3000)</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Sečti všechno DPH na vstupu (nákupy) a DPH na výstupu (prodeje)</span></div>
-<div class="step"><span class="step-num">5</span><span class="step-txt">Výstup − Vstup = kladné → <b>odvod FÚ</b>. Záporné → <b>nadměrný odpočet</b>.</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Zaokrouhluj na celé Kč. Vždy přepočítej „včetně DPH" na základ — neber sazbu přímo z ceny s DPH!</div>`
-},
-2:{
-uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Identifikuj doklad (VBÚ, VPD, PPD) → podle něj určíš účty.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Převod mezi pokladnou a BÚ jde VŽDY přes <b>261 – Peníze na cestě</b>.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Úroky z BÚ = výnos (MD 221 / D 662). Úroky z úvěru = náklad (MD 562 / D 221).</span></div>
-<div class="tip"><b>💡 Tip:</b> Pokladna a BÚ jsou aktivní účty — přírůstek na MD, úbytek na D. Při převodu nezapomeň na DVĚ operace (přes 261).</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Navrhni min. <b>10 otázek</b> — mix uzavřených, otevřených a škálových.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Ke každé otázce uveď <b>CÍL</b> (co chci zjistit).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Škálové otázky: lichý počet stupňů (1-5), možnost N. Likert: „plně souhlasím → plně nesouhlasím".</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Vyhodnocení: průměry, procenta, mediány. U bipolární škály → bipolární graf.</span></div>
-<div class="tip"><b>💡 Tip:</b> Střídej pozitivní a negativní formulace. U uzavřených nabídni „Jiné (upřesněte)".</div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Zjisti <b>odpisovou skupinu</b> (1-6) podle typu majetku a vstupní cenu.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt"><b>Rovnoměrné:</b> vždy VC × sazba/100. Sk.2: 1.rok 11%, další 22,25%.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt"><b>Zrychlené:</b> 1.rok = VC÷koef (sk.2: ÷5). Další = 2×ZC÷(koef−n). ZC = VC − dosavadní odpisy.</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Kontrola: součet všech odpisů za všechny roky = vstupní cena!</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> U zrychleného odpisu se n (počet odepsaných let) mění každý rok! DZC po posledním roce musí být 0 Kč.</div>`
-},
-3:{
-uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Je cenina <b>spotřebována ihned</b> při nákupu? → přímo do nákladů (518/538), NE přes 213.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Koupena a uložena? → na 213 (nákup), při spotřebě teprve do nákladů.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Známky/jízdenky → 518 (služby). Kolky → 538 (daně). Stravenky → 527 (zákonné soc. N).</span></div>
-<div class="tip"><b>💡 Tip:</b> Dálniční známky „rovnou registrovány" = spotřeba ihned → MD 538 / D 211.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Identifikuj <b>cílovou skupinu</b> (kdo jsou zákazníci?).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Navrhni <b>kanály propagace</b>: online (sítě, SEO, e-mail) + offline (letáky, billboardy, veletrhy).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Sestav <b>rozpočet</b> s rozpisem po kanálech a poznámkou k očekávanému přínosu.</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Uveď způsob <b>distribuce</b> letáku (kde, komu, jak).</span></div>
-<div class="tip"><b>💡 Tip:</b> Vždy navrhni MIX online a offline. Přizpůsob kanály věku cílovky — mladí = sociální sítě, starší = tisk, rádio.</div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Vypočítej <b>ČN</b> = ½ × běžná zásoba (= dodávkový cyklus) + pojistná + technická.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Vypočítej <b>NZ</b> = ČN × denní spotřeba v naturáliích.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Vypočítej <b>FN</b> = NZ × cena za jednotku.</span></div>
-<div class="tip"><b>💡 Tip:</b> Dodávkový cyklus = běžná zásoba (ve dnech). Vždy se bere POLOVINA běžné zásoby (průměr).</div>`
-},
-4:{
-uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">FP za materiál → MD 111 / D 321 (základ bez DPH). DPH zvlášť na 343.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">FP za dopravu → TAKÉ na 111 (vedlejší pořizovací náklady!).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Příjemka → MD 112 / D 111. Hodnota = součet ceny materiálu + doprava (bez DPH).</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Je-li cena „včetně DPH", nejdřív vyděl (1+sazba) pro základ. PC na příjemce = materiál + doprava BEZ DPH.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Ze zadání zjisti: <b>kolik výrobků</b>, <b>čas na 1 ks</b>, <b>délku směny</b>.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Vypočítej <b>fond pracovní doby</b> = 365 − neprac − dovolená − nemocnost.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Počet ks/den = směna ÷ čas na 1 ks. Celkem dnů = zakázka ÷ ks/den.</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Počet zaměstnanců = celkem dnů ÷ fond. <b>Zaokrouhli NAHORU!</b></span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Skuteční hosté = tržby ÷ průměrná útrata. Max hosté = místa × obrátka × dny.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Využití = (skuteční ÷ max) × 100. Stejný postup pro varianty (jiná útrata, kapacita, dny).</span></div>
-<div class="tip"><b>💡 Tip:</b> Výsledek >100% znamená, že kapacita nestačí (zákazníci čekají/odcházejí). Lze počítat přes hosty NEBO tržby — výsledek je stejný.</div>`
-},
-5:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Stejný postup jako materiál, ale účty <b>131/132</b> místo 111/112, a spotřeba na <b>504</b> místo 501.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Navrhni <b>6 kritérií</b> hodnocení (docházka, výkon, týmovost, BOZP, kvalita, iniciativa).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Rozděl stimuly na <b>ekonomické</b> (bonusy, příplatky) a <b>neekonomické</b> (kariéra, pochvala, školení).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Mzdové N: sečti mzdy všech kategorií. Přidej odměny. Celkové = HM × 1,338.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt"><b>Doplňovačka:</b> typy nezaměstnanosti → sezónní (zemědělství, stavebnictví), frikční (přirozená), dobrovolná, strukturální (rekvalifikace).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt"><b>Graf:</b> čti oba sloupce — % nezaměstnaných a uchazečů na 1 místo. Hledej korelaci.</span></div>`
-},
-6:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Příjemka = na sklad (MD 112/132). Výdejka = ze skladu do spotřeby (MD 501/504).</span></div>
-<div class="tip"><b>💡 Tip:</b> Vyskladnění zboží účtuj v <b>pořizovací ceně</b>, ne v prodejní! Prodejní cena jde až na výnos (604).</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Rozliš daňově uznatelné vs. NEúčinné benefity. Navrhni náhradu neúčinných za výhodné.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Celkové N = počet zaměstnanců × HM. Firemní N = HM × 1,338 (odvody 33,8%).</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Identifikuj nástroj ČNB (repo sazba) a směr změny (snížení/zvýšení).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Snížení = expanzivní (levnější úvěry → víc spotřeby → riziko inflace). Zvýšení = restriktivní (opak).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Zvýšení peněžní zásoby o X% = současná × 0,X.</span></div>`
-},
-7:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Prodej = DVĚ operace: 1) vyskladnění v PC (504/542 / D 132/112) + 2) tržba v prodejní ceně (311/211 / D 604/642 + 343).</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Vyskladnění je v pořizovací ceně, tržba v prodejní ceně. Rozdíl = zisk/ztráta na výsledovce.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Sestav <b>inzerát</b>: pozice, náplň, požadavky, nabídka (mzda, benefity), kontakt.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Navrhni <b>platformy + rozpočet</b> (portály, sítě, ÚP, lokální média). ÚP = zdarma!</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Postup: předvýběr CV → pohovor → praktická zkouška → smlouva → zaškolení.</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Dokumenty: od uchazeče (CV, OP, zdravotní, RT) + firma (smlouva, mzdový výměr, SP/ZP, BOZP).</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Saldo = příjmy − výdaje. Kladné = přebytek, záporné = schodek.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Podíl daní = daně ÷ celkové příjmy × 100.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Při úvahách rozliš <b>krátkodobý</b> (vyšší příjmy) vs. <b>dlouhodobý</b> dopad (pokles spotřeby, HDP).</span></div>`
-},
-8:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Spotřeba = vždy MD 5xx / D účet zásob/cenin. Typ nákladu závisí na druhu ceniny.</span></div>
-<div class="tip"><b>💡 Tip:</b> „Nákup a rovnou spotřeba" → přeskakuješ účet 213 → jdeš přímo MD 518/538 / D 211.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt"><b>CV:</b> Kontakt → Praxe (od nejnovější, s odrážkami) → Vzdělání → Dovednosti. Max 1-2 strany.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt"><b>Motivační dopis:</b> Oslovení → Proč se hlásím → Co nabízím → Proč tato firma → Závěr. Přizpůsob pozici!</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt"><b>Příprava na pohovor:</b> Prostuduj web firmy, připrav si otázky, buď konkrétní o svých zkušenostech.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Zjisti <b>věk</b> → podpůrčí doba (do 52=5M, 52-57=8M, nad 57=11M).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">ČMV = poslední kvartální příjem ÷ 3. Aplikuj sazby: 80%→50%→40%. Porovnej s max 38 537 Kč.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Celková podpora = Σ (měsíce × příslušná sazba). Nezapomeň na strop!</span></div>`
-},
-9:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">FP za majetek + FP za instalaci/dopravu → obojí na <b>042</b> (pořízení DHM). DPH zvlášť na 343.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Zařazení: MD 022 / D 042. Hodnota = celková PC (stroj + montáž + doprava BEZ DPH).</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Nezapomeň do PC zahrnout VŠECHNY vedlejší náklady (montáž, doprava, instalace)!</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Připrav dvě úrovně komunikace: <b>interní</b> (porada vedení) + <b>externí</b> (zákazníci, partneři).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Interní: identifikace příčiny → okamžitá opatření → rozdělení odpovědností → termíny.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Externí: omluva + transparentní vysvětlení + konkrétní kompenzace + prevence.</span></div>
-<div class="tip"><b>💡 Tip:</b> Rychlost a převzetí odpovědnosti jsou klíčové. Nikdy nesváděj vinu na zákazníka!</div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">HDP_nom = Σ(množství × cena daného roku) — vypočítej pro oba roky.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">HDP_real 2024 = Σ(množství 2024 × cena 2023) — ceny z PŘEDCHOZÍHO roku!</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Inflace = (HDP_nom/HDP_real − 1) × 100%. Reálný HDP = očištěný o inflaci.</span></div>`
-},
-10:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Zaúčtuj: MD 551 (náklad − odpisy) / D 082 (oprávky k SMV). Jednou ročně.</span></div>
-<div class="tip"><b>💡 Tip:</b> 551 snižuje hospodářský výsledek. 082 snižuje účetní hodnotu majetku. ZC = VC − oprávky.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Navrhni <b>organizační strukturu</b> — kdo komu podléhá (ředitel → manažeři → zaměstnanci).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Ke každé úrovni přiřaď <b>dovednosti, vzdělání, zkušenosti</b>.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Navrhni <b>delegování</b> — co může ředitel přenést na střední management.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Identifikuj: FC (fixní), VN/ks (variabilní), P (prodejní cena/ks).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">BZ = FC ÷ (P − VN). Výsledek = <b>minimální počet kusů pro nulový zisk</b>.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Varianty: změní-li se FC/VN/P → přepočítej BZ znovu. Porovnej.</span></div>
-<div class="tip"><b>💡 Tip:</b> Marže shora: P = N/ks ÷ 0,85 (15%). Marže zdola: P = N/ks × 1,15. Škola používá metodu SHORA!</div>`
-},
-11:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">FV = pohledávka (MD 311) + výnos (D 6xx) + DPH (D 343). Úhrada FV = MD 221 / D 311.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">FP = závazek (D 321) + náklad (MD 5xx) + DPH (MD 343). Úhrada FP = MD 321 / D 221.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Bipolární: vyber protikladné páry (vhodné přídavné jméno × jeho opak). Škála -4 až +4.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Likert: výroky + „souhlasím → nesouhlasím". Průměry → porovnávej mezi položkami.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">HM je základ. SP = HM×0,071, ZP = HM×0,045, záloha daně = HM×0,15.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Odečti slevy: poplatník 2570, 1.dítě 1267, 2.dítě 1860, 3.+ 2320.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Čistá mzda = HM − SP − ZP − (záloha daně po slevách). Zaměstnavatel ještě platí 33,8%.</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Příplatek za víkend = 25% z PRŮMĚRNÉ hodinové sazby, ne z HM. Přičti k HM!</div>`
-},
-12:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Náklady = MD 5xx. Výnosy = D 6xx. Nemají PS — začínají od nuly!</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Na konci období: VH = Σ výnosy − Σ náklady. Zisk → MD 710 / D 702. Ztráta → opačně.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Vyčísli <b>náklady/ks</b> (materiál + mzdy + režie + distribuce).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Marže: P = N/ks ÷ (1 − marže%). Porovnej s konkurenty — <b>přepočítej na stejnou jednotku!</b></span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Je cena konkurenceschopná? Pokud ne → kde snížit náklady? Materiál, proces, dodavatel?</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Konkurent C prodává 100g, ty 50g → musíš přepočítat na stejný objem pro srovnání!</div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Mise (proč?) → Vize (kam?) → Strategie (jak?) → Business plán (konkrétní kroky).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Struktura plánu: vize, forma podnikání, legislativa, nabídka, SWOT, finanční plán (3 scénáře), shrnutí.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Finanční plán: pesimistický, realistický, optimistický — tržby − náklady = zisk.</span></div>`
-},
-13:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Záloha: MD 335 / D 211. Vyúčtování: MD 512 / D 335 (cestovné, ubytování).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Zbytek: vrácení PPD (MD 211/D 335) nebo srážka ze mzdy (MD 331/D 335).</span></div>
-<div class="tip"><b>💡 Tip:</b> Záloha 15000, utraceno 6700 → vrací 8300 NEBO nevyúčtovaný zbytek se srazí ze mzdy.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Navrhni obsah letáku/inzerátu: název pozice, popis práce, požadavky, nabídka, kontakt.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Navrhni formát (barvy, písmo, logo, QR kód) + distribuci (kde a komu).</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Sečti příjmy (všichni zaměstnavatelé). Odečti nezdanitelné (penzijní, úroky hypotéky).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Základ × 15% = daň. Odečti slevu poplatníka (12×2570 = 30 840/rok).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Daň po slevách − zálohy = + nedoplatek / − přeplatek (vratka!).</span></div>`
-},
-14:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">FP: zjisti základ bez DPH. Je-li „včetně DPH" → vyděl (1+sazba). DPH = cena − základ.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Zaúčtuj: náklad na MD 5xx, DPH na MD 343, závazek na D 321.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Popiš <b>životní cyklus</b>: vývoj → zavedení → růst → zralost → pokles.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Ke každé fázi uveď: cena, marketing, distribuce, zákazník, inovace.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Vrstvy: základní → očekávaný → rozšířený → potenciální.</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Obal: typ (PET, sklo, karton), velikost, balení po kusech, logistika na paletách.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Identifikuj fixní a variabilní náklady. Sečti obojí → TC.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Navrhni <b>5 opatření ke snížení</b> (dodavatelé, úspory energií, sezónní menu, směny, prevence).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Graf: FC = vodorovná přímka, VN = rostoucí, CN = FC+VN.</span></div>`
-},
-15:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">FV: MD 311 / D 6xx (výnos) + MD 311 / D 343 (DPH). Úhrada: MD 221 nebo 211 / D 311.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Navrhni <b>2 benefitní programy</b> podle věku/pozice. Mladší: sport, flexibilita. Starší: zdraví, penze.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Cafeteria systém = zaměstnanec volí. Hodnoť efektivitu metodou <b>SMART</b>.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">HM zaměstnance → ZP = HM × 4,5% (zaměstnanec) a 9% (zaměstnavatel).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">OSVČ: roční příjem × (1−paušál) = základ → × 0,50 = VZ → × 13,5% = ZP.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Porovnej s min. zálohou 3 306 Kč. Je-li výpočet nižší → platí se minimum!</span></div>`
-},
-16:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Každý nákup od plátce DPH: základ na 5xx, DPH na <b>MD 343</b>. To je DPH na vstupu.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Přečti smlouvu pozorně. Najdi <b>co chybí</b> (povinné: druh práce, místo, nástup).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Co je <b>nevýhodné</b> (dlouhá zkušební doba, nízká mzda, neurčité podmínky)?</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Jaké dokumenty vyžadovat: mzdový výměr, popis pracovní náplně, interní předpisy.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Stejný postup jako ZP, ale: VZ = základ × <b>0,55</b> a sazba <b>29,2%</b>.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Min. záloha 5 720 Kč. Příplatek za víkend: hodinová sazba × 25% × hodiny.</span></div>`
-},
-17:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Každý prodej: výnos na D 6xx, DPH na <b>D 343</b>. To je DPH na výstupu.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Konec období: 343 D > 343 MD → odvádíš (MD 343 / D 221). MD > D → máš nadměrný odpočet.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Sečti příjmy, výdaje, režie, odpisy, úroky, personální N.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Produktivita = (příjmy − vše) ÷ počet zaměstnanců.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Porovnávej varianty financování: spoření × termínovaný vklad × leasing.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">TV: úspory × úrok − 15% daň z úroku = čistý výnos. Zbývá dospořit = cíl − TV výnos.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Leasing: zbývající cena ÷ měsíce + pojištění = měsíční splátka. RPSN = navýšení/splátka.</span></div>`
-},
-18:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">Předpis: MD 331 / D 342 (srážka zálohy daně ze mzdy). Úhrada FÚ: MD 342 / D 221.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Co v CV je <b>rozhodující</b> pro pozvání? (vzdělání, praxe, dovednosti relevantní pozici)</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Co <b>odradí</b>? (nesouvisející praxe, neprofesionální úprava, chyby)</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Formuluj otázky k ověření: odborné + situační + motivační.</span></div>
-<div class="step"><span class="step-num">4</span><span class="step-txt">Nevhodné otázky = vše nesouvisející s výkonem: rodina, náboženství, orientace, zdraví.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Celkový čas = Σ(množství × čas/ks) → převeď minuty na hodiny (÷60).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Fond = (365−neprac−dovolená−nemoc) × hodiny/směna.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Zaměstnanci = celkový čas ÷ fond. Zaokrouhli NAHORU.</span></div>`
-},
-19:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">524 = náklad (SP+ZP za zaměstnavatele). 336 = závazek vůči institucím.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Srážky za zaměstnance: MD 331 / D 336. Úhrada: MD 336 / D 221.</span></div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Stanovit <b>kritéria</b> (min. 4) a <b>váhy</b> (součet = 100%).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Ohodnotit každou variantu body (1-10) pro každé kritérium.</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Skóre = Σ(body × váha). <b>Nejvyšší skóre = nejlepší varianta.</b></span></div>
-<div class="tip"><b>💡 Tip:</b> Tabulka: řádky = kritéria, sloupce = varianty. Přehledné a snadno srovnatelné.</div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Počet zaměstnanců × HM = měsíční mzdy. × 12 = roční.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Celkové firemní N = HM × 1,338 (odvody 33,8%). Za měsíc i rok.</span></div>`
-},
-20:{uce:`<div class="step"><span class="step-num">1</span><span class="step-txt">521/331 = HM. 524/336 = SP+ZP zaměstnavatel. 331/336 = srážky zaměstnanec. 331/342 = daň. 331/221 = výplata.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Čistá mzda k výplatě = HM − SP(7,1%) − ZP(4,5%) − záloha daně (po slevách).</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Pořadí účtování: 1) předpis HM → 2) odvody za zaměstnavatele → 3) srážky za zaměstnance → 4) záloha daně → 5) výplata čisté mzdy.</div>`,
-mgm:`<div class="step"><span class="step-num">1</span><span class="step-txt">Formuluj <b>misi</b> (1-2 věty, přítomnost, hodnota pro zákazníky).</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Formuluj <b>vizi</b> (kam za 5-10 let, inspirativní, zapamatovatelná).</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Rozpiš <b>kroky plánu</b>: příprava → organizace → prodej/marketing → rozvoj.</span></div>`,
-eko:`<div class="step"><span class="step-num">1</span><span class="step-txt">Znehodnocení = (1 − nová/původní) × 100. Ztráta = mzda × inflace/100.</span></div>
-<div class="step"><span class="step-num">2</span><span class="step-txt">Reálná hodnota úspor: dělíš (1+inflace) každý rok → kumulativní pokles!</span></div>
-<div class="step"><span class="step-num">3</span><span class="step-txt">Ochrana TV: úspory × úrok − 15% daň → porovnej s BÚ bez úroku.</span></div>
-<div class="tip"><b>⚠️ Pozor:</b> Znehodnocení úspor se počítá kumulativně (rok po roku dělíš novou hodnotou), ne jednorázově!</div>`
-}
-};
+<details class="file-group">
+<summary>💰 Ekonomika — seminární příklady (20 témat)</summary>
+<div class="links">
+<a href="EKO seminář - Téma 1 - DPH.pdf">T1 — DPH (nepřímé daně)</a>
+<a href="EKO seminář - Téma 2 - ODPISY.pdf">T2 — Odpisy DM</a>
+<a href="EKO seminář - Téma 3 - ZÁSOBOVACÍ ČINNOST.pdf">T3 — Zásobovací činnost</a>
+<a href="EKO seminář - Téma 4 - HOSPODAŘENÍ PODNIKU.pdf">T4 — Hospodaření podniku</a>
+<a href="EKO seminář - Téma 5 - NEZAMĚSTNANOST.pdf">T5 — Nezaměstnanost</a>
+<a href="EKO seminář - Téma 6 - MONETÁRNÍ POLITIKA.pdf">T6 — Monetární politika</a>
+<a href="EKO seminář - Téma 7 - FISKÁLNÍ POLITIKA.pdf">T7 — Fiskální politika</a>
+<a href="EKO seminář - Téma 8 - SOCIÁLNÍ POLITIKA.pdf">T8 — Sociální politika</a>
+<a href="EKO seminář - Téma 9 - HDP.pdf">T9 — HDP</a>
+<a href="EKO seminář - Téma 10 - BOD ZVRATU.pdf">T10 — Bod zvratu</a>
+<a href="EKO seminář - Téma 11 - MZDY A JEJICH VÝPOČET.pdf">T11 — Mzdy a jejich výpočet</a>
+<a href="EKO seminář - Téma 12 - PODNIKATELSKÝ PLÁN.pdf">T12 — Podnikatelský plán</a>
+<a href="EKO seminář - Téma 13 - DAŇ Z PŘÍJMU.pdf">T13 — Daň z příjmu FO</a>
+<a href="EKO seminář - Téma 14 - NÁKLADY.pdf">T14 — Náklady podniku</a>
+<a href="EKO seminář - Téma 15 - ZDRAVOTNÍ POJIŠTĚNÍ.pdf">T15 — Zdravotní pojištění</a>
+<a href="EKO seminář - Téma 16 - SOCIÁLNÍ POJIŠTĚNÍ.pdf">T16 — Sociální pojištění</a>
+<a href="EKO seminář - Téma 17- BANKOVNÍ SOUSTAVA.pdf">T17 — Bankovní soustava</a>
+<a href="EKO seminář - Téma 18- PLÁNOVÁNÍ POČTU ZAMĚSTNANCŮ V PODNIKU_A.pdf">T18 — Plánování počtu zaměstnanců</a>
+<a href="EKO seminář - Téma 19 - PLÁNOVÁNÍ PERSONÁLNÍCH NÁKLADŮ.pdf">T19 — Plánování personálních nákladů</a>
+<a href="EKO seminář - Téma 20 - INFLACE.pdf">T20 — Inflace</a>
+</div>
+</details>
 
-renderNav();
-showTopic(1);
-showSub('uce');
-</script>
+<details class="file-group">
+<summary>📊 Management & Marketing — seminární příklady (20 témat)</summary>
+<div class="links">
+<a href="MKTG MGM seminář - Téma 1 - SWOT.pdf">T1 — SWOT analýza</a>
+<a href="MKTG MGM seminář - Téma 2 - MKTG PRŮZKUM.pdf">T2 — Marketingový průzkum</a>
+<a href="MKTG MGM seminář - Téma 3 - MKTG PROPAGACE.pdf">T3 — MKTG propagace</a>
+<a href="MKTG MGM seminář - Téma 4 - PERSONÁLNÍ PLÁNOVÁNÍ.pdf">T4 — Personální plánování</a>
+<a href="MKTG MGM seminář - Téma 5 - HODNOCENÍ ZAMĚSTNANCŮ.pdf">T5 — Hodnocení zaměstnanců</a>
+<a href="MKTG MGM seminář - Téma 6 - OPTIMALIZACE MZDOVÝCH NÁKLADŮ.pdf">T6 — Optimalizace mzdových N</a>
+<a href="MKTG MGM seminář - Téma 7 - ZÍSKÁVÁNÍ ZAMĚSTNACŮ.pdf">T7 — Získávání zaměstnanců</a>
+<a href="MKTG MGM seminář - Téma 8  - CV MOTIVAČNÍ DOPIS.pdf">T8 — CV a motivační dopis</a>
+<a href="MKTG MGM seminář - Téma 9  -KRIZOVÁ KOMUNIKACE.pdf">T9 — Krizová komunikace</a>
+<a href="MKTG MGM seminář - Téma 10 - MANAŽERSKÉ DOVEDNOSTI.pdf">T10 — Manažerské dovednosti</a>
+<a href="MKTG MGM seminář - Téma 11 - HODNOTÍCÍ METODY VÝZKUMU.pdf">T11 — Hodnotící metody</a>
+<a href="MKTG MGM seminář - Téma 12 - MKTG CENA.pdf">T12 — MKTG mix — cena</a>
+<a href="MKTG MGM seminář - Téma 13 - MARKETINGOVÝ MIX – PROPAGACE.pdf">T13 — MKTG mix — propagace</a>
+<a href="MKTG MGM seminář - Téma 14 - MARKETINGOVÝ MIX – VÝROBEK.pdf">T14 — MKTG mix — výrobek</a>
+<a href="MKTG MGM seminář - Téma 15 - ODMĚŇOVÁNÍ ZAMĚSTNANCŮ.pdf">T15 — Odměňování zaměstnanců</a>
+<a href="MKTG MGM seminář - Téma 16 - PRACOVNÍ SMLOUVA.pdf">T16 — Pracovní smlouva</a>
+<a href="MKTG MGM seminář - Téma 17 -PRODUKTIVITA PRÁCE.pdf">T17 — Produktivita práce</a>
+<a href="MKTG MGM seminář - Téma 18 -PERSONÁLNÍ POHOVOR.pdf">T18 — Personální pohovor</a>
+<a href="MKTG MGM seminář - Téma 19 -ROZHODOVÁNÍ.pdf">T19 — Rozhodovací metody</a>
+<a href="MKTG MGM seminář - Téma 20 - VIZE, CÍLE PODNIKATELSKÉHO PLÁNU.pdf">T20 — Vize a cíle plánu</a>
+</div>
+</details>
+
+<details class="file-group">
+<summary>⚖️ Právo — studijní materiály</summary>
+<div class="links">
+<a href="1.0_Právo_KP1B_Úvodní informace bloku - ZÁKLADNÍ PRÁVNÍ POJMY.pdf">Základní právní pojmy — úvod</a>
+<a href="1.1_Právo_KP1B_Právo a právní věda.pdf">Právo a právní věda</a>
+<a href="1.2_Právo_KP1B_Právní normy.pdf">Právní normy</a>
+<a href="1.3_Právo_KP1B_Právní předpisy.pdf">Právní předpisy</a>
+<a href="1.4_Právo_KP1B_Právní řád.pdf">Právní řád</a>
+<a href="1.5_Právo_KP1B_Zákonnost a právní vědomí.pdf">Zákonnost a právní vědomí</a>
+<a href="1.6_Právo_KP1B_Právní vztahy a právní skutečnosti.pdf">Právní vztahy a skutečnosti</a>
+<a href="1.7_Právo_KP1B_Systém práva a právní odvětví.pdf">Systém práva</a>
+<a href="2.1_Právo_KP1B_Občanské právo.pdf">Občanské právo</a>
+<a href="2.2_Právo_KP1B_Práva věcná, vlastnictví.pdf">Vlastnictví</a>
+<a href="2.5_Právo_KP1B_Dědictví.pdf">Dědictví</a>
+<a href="1.0_Právo_KP2B_Závazkové právo.pdf">Závazkové právo</a>
+<a href="2.2_Právo_KP2B_Kupní smlouva.pdf">Kupní smlouva</a>
+<a href="2.5_Právo_KP2B_Smlouva o dílo.pdf">Smlouva o dílo</a>
+<a href="3.1_Právo_KP2B_Odpovědnost za škodu.pdf">Odpovědnost za škodu</a>
+</div>
+</details>
+
+<details class="file-group">
+<summary>📒 Účetnictví — cvičné příklady</summary>
+<div class="links">
+<a href="Příklady k procvičení.docx">Příklady k procvičení (účtování)</a>
+<a href="Cvičná rozvaha 1.docx">Cvičná rozvaha 1</a>
+<a href="Cvičná rozvaha 2.docx">Cvičná rozvaha 2</a>
+<a href="Souvislý příklad  k tisku II - postup.docx">Souvislý příklad — postup</a>
+<a href="2026 Přehled použitých vzorců.pdf">Přehled vzorců 2026</a>
+</div>
+</details>
+
+<details class="file-group">
+<summary>📢 Marketing — přednášky</summary>
+<div class="links">
+<a href="Přednáška 1 - Úvod do marketingu.pdf">1 — Úvod do marketingu</a>
+<a href="Přednáška 3 - Marketingový plán.pdf">3 — Marketingový plán</a>
+<a href="Přednáška 4 - Marketingový Mix I - produkt a cena.pdf">4 — MKTG Mix I — produkt a cena</a>
+<a href="Přednáška 5 - Marketingový Mix II - propagace a distribuce.pdf">5 — MKTG Mix II — propagace</a>
+<a href="Přednáška 6 - Marketingový Mix III - lidé a procesy.pdf">6 — MKTG Mix III — lidé a procesy</a>
+<a href="Přednáška 7 - Marketing v digitálním věku.pdf">7 — Marketing v digitálním věku</a>
+<a href="Přednáška 8 - Globální marketing.pdf">8 — Globální marketing</a>
+<a href="Přednáška 9 - Etika a společenská odpovědnost.pdf">9 — Etika a CSR</a>
+<a href="Přednáška 10 - Trendy v budoucnosti marketingu.pdf">10 — Trendy v marketingu</a>
+</div>
+</details>
+
+<details class="file-group">
+<summary>🏢 Management — studijní materiály</summary>
+<div class="links">
+<a href="1.1 KP2.B_Managment_ Podstata managementu, vznik a vývoj managementu.pdf">Podstata managementu</a>
+<a href="1.2 KP2.B_Managent_Osobnost managera.pdf">Osobnost manažera</a>
+<a href="2.1 KP2.B_Managment_ Managerské funkce I. - PLÁNOVÁNÍ.pdf">Plánování</a>
+<a href="3.1 Mng_KP2.B_Celá: Managerské funkce III. - MOTIVACE A VEDENÍ LIDÍ.pdf">Motivace a vedení lidí</a>
+<a href="3.2 Mng_KP2.B_Celá: Managerské funkce III. a IV. - KONTROLA.pdf">Kontrola</a>
+<a href="4.1 Mng_KP2.B_Celá: Komunikace.pdf">Komunikace</a>
+<a href="4.2 Mng_KP2.B_Celá: Rozhodování.pdf">Rozhodování</a>
+<a href="BS_1_Od nápadu k plánu.pdf">Od nápadu k plánu</a>
+</div>
+</details>
+
+</div>
+
+<div class="footer">
+Maturita 2026 · Podnikání v praxi · Vytvořeno s pomocí AI
+</div>
+
 </body>
 </html>
